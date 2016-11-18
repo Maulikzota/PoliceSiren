@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		680E257A1DDF825800DD48FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E25791DDF825800DD48FD /* AppDelegate.swift */; };
+		680E257C1DDF825800DD48FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E257B1DDF825800DD48FD /* ViewController.swift */; };
+		680E257F1DDF825800DD48FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680E257D1DDF825800DD48FD /* Main.storyboard */; };
+		680E25811DDF825800DD48FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680E25801DDF825800DD48FD /* Assets.xcassets */; };
+		680E25841DDF825800DD48FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680E25821DDF825800DD48FD /* LaunchScreen.storyboard */; };
+		680E258F1DDF825900DD48FD /* PoliceSirenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E258E1DDF825900DD48FD /* PoliceSirenTests.swift */; };
+		680E259A1DDF825900DD48FD /* PoliceSirenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E25991DDF825900DD48FD /* PoliceSirenUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		680E258B1DDF825800DD48FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 680E256E1DDF825500DD48FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 680E25751DDF825500DD48FD;
+			remoteInfo = PoliceSiren;
+		};
+		680E25961DDF825900DD48FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 680E256E1DDF825500DD48FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 680E25751DDF825500DD48FD;
+			remoteInfo = PoliceSiren;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		680E25761DDF825800DD48FD /* PoliceSiren.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliceSiren.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		680E25791DDF825800DD48FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		680E257B1DDF825800DD48FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		680E257E1DDF825800DD48FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		680E25801DDF825800DD48FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		680E25831DDF825800DD48FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		680E25851DDF825800DD48FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		680E258A1DDF825800DD48FD /* PoliceSirenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PoliceSirenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		680E258E1DDF825900DD48FD /* PoliceSirenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliceSirenTests.swift; sourceTree = "<group>"; };
+		680E25901DDF825900DD48FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		680E25951DDF825900DD48FD /* PoliceSirenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PoliceSirenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		680E25991DDF825900DD48FD /* PoliceSirenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliceSirenUITests.swift; sourceTree = "<group>"; };
+		680E259B1DDF825900DD48FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		680E25731DDF825500DD48FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		680E25871DDF825800DD48FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		680E25921DDF825900DD48FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		680E256D1DDF825400DD48FD = {
+			isa = PBXGroup;
+			children = (
+				680E25781DDF825800DD48FD /* PoliceSiren */,
+				680E258D1DDF825800DD48FD /* PoliceSirenTests */,
+				680E25981DDF825900DD48FD /* PoliceSirenUITests */,
+				680E25771DDF825800DD48FD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		680E25771DDF825800DD48FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				680E25761DDF825800DD48FD /* PoliceSiren.app */,
+				680E258A1DDF825800DD48FD /* PoliceSirenTests.xctest */,
+				680E25951DDF825900DD48FD /* PoliceSirenUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		680E25781DDF825800DD48FD /* PoliceSiren */ = {
+			isa = PBXGroup;
+			children = (
+				680E25791DDF825800DD48FD /* AppDelegate.swift */,
+				680E257B1DDF825800DD48FD /* ViewController.swift */,
+				680E257D1DDF825800DD48FD /* Main.storyboard */,
+				680E25801DDF825800DD48FD /* Assets.xcassets */,
+				680E25821DDF825800DD48FD /* LaunchScreen.storyboard */,
+				680E25851DDF825800DD48FD /* Info.plist */,
+			);
+			path = PoliceSiren;
+			sourceTree = "<group>";
+		};
+		680E258D1DDF825800DD48FD /* PoliceSirenTests */ = {
+			isa = PBXGroup;
+			children = (
+				680E258E1DDF825900DD48FD /* PoliceSirenTests.swift */,
+				680E25901DDF825900DD48FD /* Info.plist */,
+			);
+			path = PoliceSirenTests;
+			sourceTree = "<group>";
+		};
+		680E25981DDF825900DD48FD /* PoliceSirenUITests */ = {
+			isa = PBXGroup;
+			children = (
+				680E25991DDF825900DD48FD /* PoliceSirenUITests.swift */,
+				680E259B1DDF825900DD48FD /* Info.plist */,
+			);
+			path = PoliceSirenUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		680E25751DDF825500DD48FD /* PoliceSiren */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 680E259E1DDF825900DD48FD /* Build configuration list for PBXNativeTarget "PoliceSiren" */;
+			buildPhases = (
+				680E25721DDF825500DD48FD /* Sources */,
+				680E25731DDF825500DD48FD /* Frameworks */,
+				680E25741DDF825500DD48FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PoliceSiren;
+			productName = PoliceSiren;
+			productReference = 680E25761DDF825800DD48FD /* PoliceSiren.app */;
+			productType = "com.apple.product-type.application";
+		};
+		680E25891DDF825800DD48FD /* PoliceSirenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 680E25A11DDF825900DD48FD /* Build configuration list for PBXNativeTarget "PoliceSirenTests" */;
+			buildPhases = (
+				680E25861DDF825800DD48FD /* Sources */,
+				680E25871DDF825800DD48FD /* Frameworks */,
+				680E25881DDF825800DD48FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				680E258C1DDF825800DD48FD /* PBXTargetDependency */,
+			);
+			name = PoliceSirenTests;
+			productName = PoliceSirenTests;
+			productReference = 680E258A1DDF825800DD48FD /* PoliceSirenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		680E25941DDF825900DD48FD /* PoliceSirenUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 680E25A41DDF825900DD48FD /* Build configuration list for PBXNativeTarget "PoliceSirenUITests" */;
+			buildPhases = (
+				680E25911DDF825900DD48FD /* Sources */,
+				680E25921DDF825900DD48FD /* Frameworks */,
+				680E25931DDF825900DD48FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				680E25971DDF825900DD48FD /* PBXTargetDependency */,
+			);
+			name = PoliceSirenUITests;
+			productName = PoliceSirenUITests;
+			productReference = 680E25951DDF825900DD48FD /* PoliceSirenUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		680E256E1DDF825500DD48FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = Maulik;
+				TargetAttributes = {
+					680E25751DDF825500DD48FD = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+					680E25891DDF825800DD48FD = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 680E25751DDF825500DD48FD;
+					};
+					680E25941DDF825900DD48FD = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 680E25751DDF825500DD48FD;
+					};
+				};
+			};
+			buildConfigurationList = 680E25711DDF825500DD48FD /* Build configuration list for PBXProject "PoliceSiren" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 680E256D1DDF825400DD48FD;
+			productRefGroup = 680E25771DDF825800DD48FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				680E25751DDF825500DD48FD /* PoliceSiren */,
+				680E25891DDF825800DD48FD /* PoliceSirenTests */,
+				680E25941DDF825900DD48FD /* PoliceSirenUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		680E25741DDF825500DD48FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				680E25841DDF825800DD48FD /* LaunchScreen.storyboard in Resources */,
+				680E25811DDF825800DD48FD /* Assets.xcassets in Resources */,
+				680E257F1DDF825800DD48FD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		680E25881DDF825800DD48FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		680E25931DDF825900DD48FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		680E25721DDF825500DD48FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				680E257C1DDF825800DD48FD /* ViewController.swift in Sources */,
+				680E257A1DDF825800DD48FD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		680E25861DDF825800DD48FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				680E258F1DDF825900DD48FD /* PoliceSirenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		680E25911DDF825900DD48FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				680E259A1DDF825900DD48FD /* PoliceSirenUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		680E258C1DDF825800DD48FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 680E25751DDF825500DD48FD /* PoliceSiren */;
+			targetProxy = 680E258B1DDF825800DD48FD /* PBXContainerItemProxy */;
+		};
+		680E25971DDF825900DD48FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 680E25751DDF825500DD48FD /* PoliceSiren */;
+			targetProxy = 680E25961DDF825900DD48FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		680E257D1DDF825800DD48FD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				680E257E1DDF825800DD48FD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		680E25821DDF825800DD48FD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				680E25831DDF825800DD48FD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		680E259C1DDF825900DD48FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		680E259D1DDF825900DD48FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		680E259F1DDF825900DD48FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PoliceSiren/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSiren;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		680E25A01DDF825900DD48FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PoliceSiren/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSiren;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		680E25A21DDF825900DD48FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PoliceSirenTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSirenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PoliceSiren.app/PoliceSiren";
+			};
+			name = Debug;
+		};
+		680E25A31DDF825900DD48FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PoliceSirenTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSirenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PoliceSiren.app/PoliceSiren";
+			};
+			name = Release;
+		};
+		680E25A51DDF825900DD48FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = PoliceSirenUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSirenUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = PoliceSiren;
+			};
+			name = Debug;
+		};
+		680E25A61DDF825900DD48FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = PoliceSirenUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSirenUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = PoliceSiren;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		680E25711DDF825500DD48FD /* Build configuration list for PBXProject "PoliceSiren" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				680E259C1DDF825900DD48FD /* Debug */,
+				680E259D1DDF825900DD48FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		680E259E1DDF825900DD48FD /* Build configuration list for PBXNativeTarget "PoliceSiren" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				680E259F1DDF825900DD48FD /* Debug */,
+				680E25A01DDF825900DD48FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		680E25A11DDF825900DD48FD /* Build configuration list for PBXNativeTarget "PoliceSirenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				680E25A21DDF825900DD48FD /* Debug */,
+				680E25A31DDF825900DD48FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		680E25A41DDF825900DD48FD /* Build configuration list for PBXNativeTarget "PoliceSirenUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				680E25A51DDF825900DD48FD /* Debug */,
+				680E25A61DDF825900DD48FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 680E256E1DDF825500DD48FD /* Project object */;
+}
