@@ -14,6 +14,8 @@
 		680E25841DDF825800DD48FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680E25821DDF825800DD48FD /* LaunchScreen.storyboard */; };
 		680E258F1DDF825900DD48FD /* PoliceSirenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E258E1DDF825900DD48FD /* PoliceSirenTests.swift */; };
 		680E259A1DDF825900DD48FD /* PoliceSirenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E25991DDF825900DD48FD /* PoliceSirenUITests.swift */; };
+		680E25A91DDF82B700DD48FD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 680E25A81DDF82B700DD48FD /* AVFoundation.framework */; };
+		680E25AB1DDF82BE00DD48FD /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 680E25AA1DDF82BE00DD48FD /* AVKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		680E25951DDF825900DD48FD /* PoliceSirenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PoliceSirenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		680E25991DDF825900DD48FD /* PoliceSirenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliceSirenUITests.swift; sourceTree = "<group>"; };
 		680E259B1DDF825900DD48FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		680E25A81DDF82B700DD48FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		680E25AA1DDF82BE00DD48FD /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				680E25AB1DDF82BE00DD48FD /* AVKit.framework in Frameworks */,
+				680E25A91DDF82B700DD48FD /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,7 @@
 				680E258D1DDF825800DD48FD /* PoliceSirenTests */,
 				680E25981DDF825900DD48FD /* PoliceSirenUITests */,
 				680E25771DDF825800DD48FD /* Products */,
+				680E25A71DDF82B700DD48FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +130,15 @@
 				680E259B1DDF825900DD48FD /* Info.plist */,
 			);
 			path = PoliceSirenUITests;
+			sourceTree = "<group>";
+		};
+		680E25A71DDF82B700DD48FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				680E25AA1DDF82BE00DD48FD /* AVKit.framework */,
+				680E25A81DDF82B700DD48FD /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +209,7 @@
 				TargetAttributes = {
 					680E25751DDF825500DD48FD = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = RA45SD65D5;
 						ProvisioningStyle = Automatic;
 					};
 					680E25891DDF825800DD48FD = {
@@ -412,7 +429,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RA45SD65D5;
 				INFOPLIST_FILE = PoliceSiren/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSiren;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,7 +443,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RA45SD65D5;
 				INFOPLIST_FILE = PoliceSiren/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSiren;
 				PRODUCT_NAME = "$(TARGET_NAME)";
