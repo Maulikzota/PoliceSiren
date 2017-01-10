@@ -45,22 +45,36 @@ class ViewController: UIViewController {
         silence = AKBooster(tracker, gain: 0)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        @IBAction func recordTapped(sender: UIButton) {
-            if audioRecorder == nil {
-                startRecording()
-            } else {
-                finishRecording(success: true)
-            }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//
+//        AudioKit.output = silence
+//        AudioKit.start()
+////        setupPlot()
+//        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
+//    }
+    
+    @IBAction func recordTapped(sender: UIButton) {
+        if AudioKit.output == silence {
+            startRecording()
+        } else {
+            finishRecording(success: true)
         }
-
-        AudioKit.output = silence
+    }
+    
+    func startRecording(){
+//        AudioKit.output = silence
         AudioKit.start()
-//        setupPlot()
+        audioAnalyse.setTitle("Tap to Stop", for: .normal)
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
     }
+    
+    func finishRecording(success: Bool) {
+            AudioKit.stop()
+            audioAnalyse.setTitle("Tap To Run", for: .normal)
+        }
+
+
     
     func updateUI() {
         if tracker.amplitude > 0.1 {
