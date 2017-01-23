@@ -21,7 +21,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teb-Wf-sbr" userLabel="Start Recording">
                                 <frame key="frameInset" minX="16" minY="60" width="130" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start Recording"/>
+                                <state key="normal" title="Tap to Start"/>
                                 <connections>
                                     <action selector="recordTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pi2-3g-2WR"/>
                                 </connections>
