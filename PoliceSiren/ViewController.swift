@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
     
+    
     let noteFrequencies = [16.35,17.32,18.35,19.45,20.6,21.83,23.12,24.5,25.96,27.5,29.14,30.87]
     let noteNamesWithSharps = ["C", "C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
     let noteNamesWithFlats = ["C", "D♭","D","E♭","E","F","G♭","G","A♭","A","B♭","B"]
@@ -39,6 +40,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AKAudioFile.cleanTempDirectory()
+        
+        
+//        AKSettings.audioInputEnabled = true
+        AKSettings.sampleRate = 44100
+        AKSettings.numberOfChannels = 1
+        
+        do{
+            try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
+        } catch { print("Errored setting category.")}
+        
         AKSettings.audioInputEnabled = true
         mic = AKMicrophone()
         tracker = AKFrequencyTracker.init(mic)
@@ -50,12 +62,12 @@ class ViewController: UIViewController {
     @IBAction func recordTapped(sender: UIButton) {
         let text = audioAnalyse.titleLabel!.text
          if text == "Tap to Start"{
-            print("Start");
+//            print("Start");
             audioAnalyse.setTitle("Tap to Stop", for: .normal);
             mic.start()
             Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
          }else{
-            print("Stop");
+//            print("Stop");
             audioAnalyse.setTitle("Tap to Start", for: .normal);
             mic.stop();
         }
@@ -63,7 +75,7 @@ class ViewController: UIViewController {
     
     func updateUI() {
         if tracker.amplitude > 0.1 {
-            frequencyLabel.text = String(format: "%0.1f", tracker.frequency)
+            frequencyLabel.text = String(format: "%0.1f Hz", tracker.frequency)
             
             var frequency = Float(tracker.frequency)
             while (frequency > Float(noteFrequencies[noteFrequencies.count-1])) {
