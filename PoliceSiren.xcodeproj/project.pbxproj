@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FFFA22F1E1F291800D1C7C9 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFFA22E1E1F291800D1C7C9 /* AudioKit.framework */; };
-		3FFFA2321E1F298A00D1C7C9 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFFA2311E1F298A00D1C7C9 /* AudioKit.framework */; };
-		3FFFA2331E1F298A00D1C7C9 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFFA2311E1F298A00D1C7C9 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3F61CB561E3A5E1000A2A83C /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F61CB551E3A5E1000A2A83C /* AudioKit.framework */; };
+		3F61CB571E3A5E1000A2A83C /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F61CB551E3A5E1000A2A83C /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		680E257A1DDF825800DD48FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E25791DDF825800DD48FD /* AppDelegate.swift */; };
 		680E257C1DDF825800DD48FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E257B1DDF825800DD48FD /* ViewController.swift */; };
 		680E257F1DDF825800DD48FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680E257D1DDF825800DD48FD /* Main.storyboard */; };
@@ -39,13 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3FFFA2341E1F298A00D1C7C9 /* Embed Frameworks */ = {
+		3F61CB581E3A5E1100A2A83C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3FFFA2331E1F298A00D1C7C9 /* AudioKit.framework in Embed Frameworks */,
+				3F61CB571E3A5E1000A2A83C /* AudioKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,8 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3FFFA22E1E1F291800D1C7C9 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = "../../AudioKit-3.5/Frameworks/AudioKit-iOS/AudioKit.framework"; sourceTree = "<group>"; };
-		3FFFA2311E1F298A00D1C7C9 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		3F61CB551E3A5E1000A2A83C /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		680E25761DDF825800DD48FD /* PoliceSiren.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliceSiren.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		680E25791DDF825800DD48FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		680E257B1DDF825800DD48FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,8 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FFFA2321E1F298A00D1C7C9 /* AudioKit.framework in Frameworks */,
-				3FFFA22F1E1F291800D1C7C9 /* AudioKit.framework in Frameworks */,
+				3F61CB561E3A5E1000A2A83C /* AudioKit.framework in Frameworks */,
 				680E25AB1DDF82BE00DD48FD /* AVKit.framework in Frameworks */,
 				680E25A91DDF82B700DD48FD /* AVFoundation.framework in Frameworks */,
 			);
@@ -104,7 +101,7 @@
 		680E256D1DDF825400DD48FD = {
 			isa = PBXGroup;
 			children = (
-				3FFFA2311E1F298A00D1C7C9 /* AudioKit.framework */,
+				3F61CB551E3A5E1000A2A83C /* AudioKit.framework */,
 				680E25781DDF825800DD48FD /* PoliceSiren */,
 				680E258D1DDF825800DD48FD /* PoliceSirenTests */,
 				680E25981DDF825900DD48FD /* PoliceSirenUITests */,
@@ -157,7 +154,6 @@
 		680E25A71DDF82B700DD48FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3FFFA22E1E1F291800D1C7C9 /* AudioKit.framework */,
 				680E25AA1DDF82BE00DD48FD /* AVKit.framework */,
 				680E25A81DDF82B700DD48FD /* AVFoundation.framework */,
 			);
@@ -174,7 +170,7 @@
 				680E25721DDF825500DD48FD /* Sources */,
 				680E25731DDF825500DD48FD /* Frameworks */,
 				680E25741DDF825500DD48FD /* Resources */,
-				3FFFA2341E1F298A00D1C7C9 /* Embed Frameworks */,
+				3F61CB581E3A5E1100A2A83C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -228,7 +224,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Maulik;
 				TargetAttributes = {
 					680E25751DDF825500DD48FD = {
@@ -374,6 +370,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -424,6 +421,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
