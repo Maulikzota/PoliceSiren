@@ -12,9 +12,10 @@ import AudioKit
 
 @objc public class AKFFT: NSObject, EZAudioFFTDelegate {
     
-    internal let bufferSize: UInt32 = 44100
+    internal let bufferSize: UInt32 = 8192
     internal var fft: EZAudioFFT?
-    open var fftData = [Float](zeros: 44099)
+
+    open var fftData = [Double](zeros: 512)
     
     public init(_ input: AKNode) {
         super.init()
@@ -32,8 +33,8 @@ import AudioKit
     /// Array of FFT data
     @objc public func fft(_ fft: EZAudioFFT!, updatedWithFFTData fftData: UnsafeMutablePointer<Float>, bufferSize: vDSP_Length) {
         DispatchQueue.main.async { () -> Void in
-            for i in 0...44099 {
-                self.fftData[i] = Float(fftData[i])
+            for i in 0...511 {
+                self.fftData[i] = Double(fftData[i])
             }
         }
     }
@@ -59,7 +60,7 @@ class ViewController: UIViewController {
     var count=0
     var avgFreq = 0.0
     var fft:AKFFT!
-    var data:[Float]!
+    var data:[Double]!
 
     
     let noteFrequencies = [16.35,17.32,18.35,19.45,20.6,21.83,23.12,24.5,25.96,27.5,29.14,30.87]
