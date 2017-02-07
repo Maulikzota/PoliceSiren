@@ -10,6 +10,40 @@ import UIKit
 //import AVFoundation
 import AudioKit
 
+@objc public class AKFFT: NSObject, EZAudioFFTDelegate {
+    
+    internal let bufferSize: UInt32 = 44100
+    internal var fft: EZAudioFFT?
+    open var fftData = [Float](zeros: 44099)
+    
+    public init(_ input: AKNode) {
+        super.init()
+        fft = EZAudioFFT(maximumBufferSize:vDSP_Length(bufferSize), sampleRate: 44100.0, delegate: self)
+        input.avAudioNode.installTap(onBus: 0, bufferSize: bufferSize, format: AudioKit.format) { [weak self] (buffer, time) -> Void in
+            if let strongSelf = self {
+                buffer.frameLength = strongSelf.bufferSize;
+                let offset: Int = Int(buffer.frameCapacity - buffer.frameLength);
+                let tail = buffer.floatChannelData?[0];
+                strongSelf.fft!.computeFFT(withBuffer: &tail![offset], withBufferSize: strongSelf.bufferSize)
+            }
+        }
+    }
+    
+    /// Array of FFT data
+    @objc public func fft(_ fft: EZAudioFFT!, updatedWithFFTData fftData: UnsafeMutablePointer<Float>, bufferSize: vDSP_Length) {
+        DispatchQueue.main.async { () -> Void in
+            for i in 0...44099 {
+                self.fftData[i] = Float(fftData[i])
+            }
+        }
+    }
+    
+    
+    
+}
+
+
+
 class ViewController: UIViewController {
     
     @IBOutlet var frequencyLabel: UILabel!
@@ -24,6 +58,9 @@ class ViewController: UIViewController {
     var silence: AKBooster!
     var count=0
     var avgFreq = 0.0
+    var fft:AKFFT!
+    var data:[Float]!
+
     
     let noteFrequencies = [16.35,17.32,18.35,19.45,20.6,21.83,23.12,24.5,25.96,27.5,29.14,30.87]
     let noteNamesWithSharps = ["C", "C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
@@ -47,6 +84,8 @@ class ViewController: UIViewController {
 //        AKSettings.audioInputEnabled = true
         AKSettings.sampleRate = 44100
         AKSettings.numberOfChannels = 1
+        AKSettings.bufferLength = .longest
+
         
         do{
             try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
@@ -66,6 +105,7 @@ class ViewController: UIViewController {
 //            print("Start");
             audioAnalyse.setTitle("Tap to Stop", for: .normal);
             mic.start()
+            fft = AKFFT(mic)
             Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
          }else{
 //            print("Stop");
@@ -79,6 +119,24 @@ class ViewController: UIViewController {
         if tracker.amplitude > 0.1 {
             print("Amplitude: ",tracker.amplitude)
             print("Frequency: ",tracker.frequency)
+            data = fft.fftData
+            let max = fft.fftData.max()!
+            //            let index = fft.fftData.index(of: max)
+            //            print("Max: ",max)
+            //            print("index: ",index ?? 0.0)
+//            var total=0.0
+            //            var ctotal=0
+//            for i in stride(from: 0, to: data.count, by: 1){
+//                //                tracker2=AKFrequencyTracker.init(data[i])
+//                total+=data[i]
+//            }
+            print("Count Data: ",data.count)
+            print("Max: ",max)
+            //            print("index: ",data.index(of: max) ?? 0.0)
+            //            print("Total: ",total)
+
+            
+            
             frequencyLabel.text = String(format: "%0.1f Hz", tracker.frequency)
             avgFreq+=tracker.frequency;
             count+=1;
