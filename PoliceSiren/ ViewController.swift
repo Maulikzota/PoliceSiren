@@ -15,7 +15,7 @@ import AudioKit
     internal let bufferSize: UInt32 = 8192
     internal var fft: EZAudioFFT?
 
-    open var fftData = [Double](zeros: 512)
+    open var fftData = [Double](zeros: 4096)
     
     public init(_ input: AKNode) {
         super.init()
@@ -33,7 +33,7 @@ import AudioKit
     /// Array of FFT data
     @objc public func fft(_ fft: EZAudioFFT!, updatedWithFFTData fftData: UnsafeMutablePointer<Float>, bufferSize: vDSP_Length) {
         DispatchQueue.main.async { () -> Void in
-            for i in 0...511 {
+            for i in 0...4095 {
                 self.fftData[i] = Double(fftData[i])
             }
         }
@@ -61,6 +61,7 @@ class ViewController: UIViewController {
     var avgFreq = 0.0
     var fft:AKFFT!
     var data:[Double]!
+    var fdata:[Double]!
 
     
     let noteFrequencies = [16.35,17.32,18.35,19.45,20.6,21.83,23.12,24.5,25.96,27.5,29.14,30.87]
@@ -95,6 +96,9 @@ class ViewController: UIViewController {
         AKSettings.audioInputEnabled = true
         mic = AKMicrophone()
         tracker = AKFrequencyTracker.init(mic)
+//        let bpf = AKBandPassFilter(tracker)
+//        bpf.centerFrequency=1500
+//        bpf.bandwidth=600
         silence = AKBooster(tracker, gain: 0)
         AudioKit.output = silence
         AudioKit.start()
@@ -107,7 +111,7 @@ class ViewController: UIViewController {
             audioAnalyse.setTitle("Tap to Stop", for: .normal);
             mic.start()
             fft = AKFFT(mic)
-            Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
+            Timer.scheduledTimer(timeInterval: 0.0025, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
          }else{
 //            print("Stop");
             audioAnalyse.setTitle("Tap to Start", for: .normal);
@@ -117,12 +121,17 @@ class ViewController: UIViewController {
     
     func updateUI() {
         
-        if tracker.amplitude > 0.1 {
+         if tracker.amplitude > 0.1 {
+//            fdata.append(tracker.frequency)
+//            if(fdata.count==100){
+//                print(fdata)
+//                fdata.removeAll()
+//            }
             print("Amplitude: ",tracker.amplitude)
             print("Frequency: ",tracker.frequency)
-            data = fft.fftData
-            let max = fft.fftData.max()!
-            //            let index = fft.fftData.index(of: max)
+//            data = fft.fftData
+//            let max = fft.fftData.max()!
+//            let index = fft.fftData.index(of: max)
             //            print("Max: ",max)
             //            print("index: ",index ?? 0.0)
 //            var total=0.0
@@ -131,9 +140,9 @@ class ViewController: UIViewController {
 //                //                tracker2=AKFrequencyTracker.init(data[i])
 //                total+=data[i]
 //            }
-            print("Count Data: ",data.count)
-            print("Max: ",max)
-            //            print("index: ",data.index(of: max) ?? 0.0)
+//            print("Count Data: ",data.count)
+//            print("Max: ",max)
+//            print("index: ",index ?? 0.0)
             //            print("Total: ",total)
 
             
@@ -141,8 +150,8 @@ class ViewController: UIViewController {
             frequencyLabel.text = String(format: "%0.1f Hz", tracker.frequency)
             avgFreq+=tracker.frequency;
             count+=1;
-            print("Count: ",count)
-            print("AvgFreq: ",avgFreq)
+//            print("Count: ",count)
+//            print("AvgFreq: ",avgFreq)
 //            var frequency = Float(tracker.frequency)
 //            while (frequency > Float(noteFrequencies[noteFrequencies.count-1])) {
 //                frequency = frequency / 2.0
@@ -164,7 +173,7 @@ class ViewController: UIViewController {
 //            let octave = Int(log2f(Float(tracker.frequency) / frequency))
 //            noteNameWithSharpsLabel.text = "\(noteNamesWithSharps[index])\(octave)"
 //            noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
-        }
+       }
         amplitudeLabel.text = String(format: "%0.2f", tracker.amplitude)
     }
     

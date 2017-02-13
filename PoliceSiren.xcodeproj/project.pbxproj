@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		3F61CB561E3A5E1000A2A83C /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F61CB551E3A5E1000A2A83C /* AudioKit.framework */; };
 		3F61CB571E3A5E1000A2A83C /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F61CB551E3A5E1000A2A83C /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3FE135B31E4A12C50098DBDD /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE135B01E4A129F0098DBDD /* Surge.framework */; };
-		3FE135B41E4A12C50098DBDD /* Surge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE135B01E4A129F0098DBDD /* Surge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		680E257A1DDF825800DD48FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E25791DDF825800DD48FD /* AppDelegate.swift */; };
 		680E257C1DDF825800DD48FD /*  ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E257B1DDF825800DD48FD /*  ViewController.swift */; };
 		680E257F1DDF825800DD48FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680E257D1DDF825800DD48FD /* Main.storyboard */; };
@@ -23,27 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3FE135AF1E4A129F0098DBDD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3FE135AA1E4A129F0098DBDD /* Surge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8A1E1AA19917A79009735E2;
-			remoteInfo = Surge;
-		};
-		3FE135B11E4A129F0098DBDD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3FE135AA1E4A129F0098DBDD /* Surge.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F84A6AAE19A9A72F007B53E1;
-			remoteInfo = SurgeTests;
-		};
-		3FE135B51E4A12C50098DBDD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3FE135AA1E4A129F0098DBDD /* Surge.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8A1E1A919917A79009735E2;
-			remoteInfo = Surge;
-		};
 		680E258B1DDF825800DD48FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 680E256E1DDF825500DD48FD /* Project object */;
@@ -68,7 +45,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				3F61CB571E3A5E1000A2A83C /* AudioKit.framework in Embed Frameworks */,
-				3FE135B41E4A12C50098DBDD /* Surge.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		3F61CB551E3A5E1000A2A83C /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
-		3FE135AA1E4A129F0098DBDD /* Surge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Surge.xcodeproj; path = "../../Downloads/Surge-master/Surge.xcodeproj"; sourceTree = "<group>"; };
 		680E25761DDF825800DD48FD /* PoliceSiren.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliceSiren.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		680E25791DDF825800DD48FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		680E257B1DDF825800DD48FD /*  ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " ViewController.swift"; sourceTree = "<group>"; };
@@ -101,7 +76,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F61CB561E3A5E1000A2A83C /* AudioKit.framework in Frameworks */,
-				3FE135B31E4A12C50098DBDD /* Surge.framework in Frameworks */,
 				680E25AB1DDF82BE00DD48FD /* AVKit.framework in Frameworks */,
 				680E25A91DDF82B700DD48FD /* AVFoundation.framework in Frameworks */,
 			);
@@ -124,19 +98,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3FE135AB1E4A129F0098DBDD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3FE135B01E4A129F0098DBDD /* Surge.framework */,
-				3FE135B21E4A129F0098DBDD /* SurgeTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		680E256D1DDF825400DD48FD = {
 			isa = PBXGroup;
 			children = (
-				3FE135AA1E4A129F0098DBDD /* Surge.xcodeproj */,
 				3F61CB551E3A5E1000A2A83C /* AudioKit.framework */,
 				680E25781DDF825800DD48FD /* PoliceSiren */,
 				680E258D1DDF825800DD48FD /* PoliceSirenTests */,
@@ -211,7 +175,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				3FE135B61E4A12C50098DBDD /* PBXTargetDependency */,
 			);
 			name = PoliceSiren;
 			productName = PoliceSiren;
@@ -292,12 +255,6 @@
 			mainGroup = 680E256D1DDF825400DD48FD;
 			productRefGroup = 680E25771DDF825800DD48FD /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 3FE135AB1E4A129F0098DBDD /* Products */;
-					ProjectRef = 3FE135AA1E4A129F0098DBDD /* Surge.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				680E25751DDF825500DD48FD /* PoliceSiren */,
@@ -306,23 +263,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		3FE135B01E4A129F0098DBDD /* Surge.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Surge.framework;
-			remoteRef = 3FE135AF1E4A129F0098DBDD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3FE135B21E4A129F0098DBDD /* SurgeTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SurgeTests.xctest;
-			remoteRef = 3FE135B11E4A129F0098DBDD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		680E25741DDF825500DD48FD /* Resources */ = {
@@ -380,11 +320,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3FE135B61E4A12C50098DBDD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Surge;
-			targetProxy = 3FE135B51E4A12C50098DBDD /* PBXContainerItemProxy */;
-		};
 		680E258C1DDF825800DD48FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 680E25751DDF825500DD48FD /* PoliceSiren */;
