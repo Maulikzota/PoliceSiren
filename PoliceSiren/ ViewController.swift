@@ -53,6 +53,9 @@ class ViewController: UIViewController {
     @IBOutlet var userspeed: UISlider!
     @IBOutlet var emergencyspeed: UISlider!
     @IBOutlet var typeofvehicle: UISegmentedControl!
+    var inwardVelocity: Double = 0.0;
+    var stadyvelocity: Double = 0.0;
+    var outwardvelocity: Double = 0.0;
     
     
 //    @IBOutlet var noteNameWithSharpsLabel: UILabel!
@@ -124,15 +127,32 @@ class ViewController: UIViewController {
         }
     }
     
-    func calculateVelocity(){
+    func calculateVelocity(sfrequency: Double){
+        let dfrequency = 0.0
+        let windvelocity = 340.29;
+        let v1 = windvelocity+(userspeed.value * 0.44704)
+        let v2 = windvelocity - ((userspeed.value + emergencyspeed.value) * 0.44704)
+        dfrequency = (v1/v2) * sfrequency
         
+        
+        
+    }
+    
+    func calculateFrequency(){
         switch typeofvehicle.selectedSegmentIndex {
-        case <#pattern#>:
-            <#code#>
+        case 0:
+            calculateVelocity(sfrequency: 700.00);
+            break;
+        case 1:
+            calculateVelocity(sfrequency: 495.00);
+            break;
+        case 2:
+            calculateVelocity(sfrequency: 1500.00);
+            break;
         default:
-            <#code#>
+            calculateVelocity(sfrequency: 700.00);
+            break;
         }
-        
     }
     
     
