@@ -50,8 +50,8 @@ class ViewController: UIViewController {
     @IBOutlet var frequencyLabel: UILabel!
     @IBOutlet var amplitudeLabel: UILabel!
     @IBOutlet var audioAnalyse:UIButton!
-    @IBOutlet var userspeed: UISlider!
-    @IBOutlet var emergencyspeed: UISlider!
+    @IBOutlet weak var userspeed: UISlider!
+    @IBOutlet weak var emergencyspeed: UISlider!
     @IBOutlet var typeofvehicle: UISegmentedControl!
     var inwardVelocity: Double = 0.0;
     var stadyvelocity: Double = 0.0;
@@ -128,23 +128,23 @@ class ViewController: UIViewController {
     }
     
     func calculateVelocity(sfrequency: Double){
-        let dfrequency = 0.0
-        let windvelocity = 340.29;
-        let v1 = windvelocity+(userspeed.value * 0.44704)
-        let v2 = windvelocity - ((userspeed.value + emergencyspeed.value) * 0.44704)
-        dfrequency = (v1/v2) * sfrequency
-        
-        
-        
+        let windvelocity = 340.29
+        let userv = Int(userspeed.value)
+        let emerv = Int(emergencyspeed.value)
+        let v1 = windvelocity+(userv * 0.44704)
+        let v2 = windvelocity - (userv + emerv) * 0.44704
+        let v3 = windvelocity + (userv + emerv) * 0.44704
+        inwardVelocity = (v1/v2) * sfrequency
+        outwardvelocity = (v1/v3)*sfrequency
     }
     
-    func calculateFrequency(){
+    @IBAction func calculateFrequency(sender: UIButton){
         switch typeofvehicle.selectedSegmentIndex {
         case 0:
-            calculateVelocity(sfrequency: 700.00);
+            calculateVelocity(sfrequency: 495.00);
             break;
         case 1:
-            calculateVelocity(sfrequency: 495.00);
+            calculateVelocity(sfrequency: 700.00);
             break;
         case 2:
             calculateVelocity(sfrequency: 1500.00);
@@ -159,6 +159,15 @@ class ViewController: UIViewController {
     func updateUI() {
         
          if tracker.amplitude > 0.1 {
+            if( outwardvelocity < tracker.frequency && tracker.frequency < inwardVelocity ){
+                count += 1;
+                if(count > 10){
+                    print("Alert")
+                }else{
+                    print("Safe")
+                }
+            }
+            
 //            fdata.append(tracker.frequency)
 //            if(fdata.count==100){
 //                print(fdata)
