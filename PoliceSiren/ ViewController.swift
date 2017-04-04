@@ -50,6 +50,11 @@ class ViewController: UIViewController {
     @IBOutlet var frequencyLabel: UILabel!
     @IBOutlet var amplitudeLabel: UILabel!
     @IBOutlet var audioAnalyse:UIButton!
+    @IBOutlet var userspeed: UISlider!
+    @IBOutlet var emergencyspeed: UISlider!
+    @IBOutlet var typeofvehicle: UISegmentedControl!
+    
+    
 //    @IBOutlet var noteNameWithSharpsLabel: UILabel!
 //    @IBOutlet var noteNameWithFlatsLabel: UILabel!
 //    @IBOutlet var audioInputPlot: EZAudioPlot!
@@ -118,6 +123,18 @@ class ViewController: UIViewController {
             mic.stop();
         }
     }
+    
+    func calculateVelocity(){
+        
+        switch typeofvehicle.selectedSegmentIndex {
+        case <#pattern#>:
+            <#code#>
+        default:
+            <#code#>
+        }
+        
+    }
+    
     
     func updateUI() {
         
