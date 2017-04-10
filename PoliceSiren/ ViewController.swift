@@ -10,38 +10,7 @@ import UIKit
 //import AVFoundation
 import AudioKit
 
-@objc public class AKFFT: NSObject, EZAudioFFTDelegate {
-    
-    internal let bufferSize: UInt32 = 8192
-    internal var fft: EZAudioFFT?
 
-    open var fftData = [Double](zeros: 4096)
-    
-    public init(_ input: AKNode) {
-        super.init()
-        fft = EZAudioFFT(maximumBufferSize:vDSP_Length(bufferSize), sampleRate: 44100.0, delegate: self)
-        input.avAudioNode.installTap(onBus: 0, bufferSize: bufferSize, format: AudioKit.format) { [weak self] (buffer, time) -> Void in
-            if let strongSelf = self {
-                buffer.frameLength = strongSelf.bufferSize;
-                let offset: Int = Int(buffer.frameCapacity - buffer.frameLength);
-                let tail = buffer.floatChannelData?[0];
-                strongSelf.fft!.computeFFT(withBuffer: &tail![offset], withBufferSize: strongSelf.bufferSize)
-            }
-        }
-    }
-    
-    /// Array of FFT data
-    @objc public func fft(_ fft: EZAudioFFT!, updatedWithFFTData fftData: UnsafeMutablePointer<Float>, bufferSize: vDSP_Length) {
-        DispatchQueue.main.async { () -> Void in
-            for i in 0...4095 {
-                self.fftData[i] = Double(fftData[i])
-            }
-        }
-    }
-    
-    
-    
-}
 
 
 
@@ -51,7 +20,11 @@ class ViewController: UIViewController {
     @IBOutlet var amplitudeLabel: UILabel!
     @IBOutlet var audioAnalyse:UIButton!
     @IBOutlet weak var userspeed: UISlider!
+    @IBOutlet var userspeedvalue: UILabel!
     @IBOutlet weak var emergencyspeed: UISlider!
+    @IBOutlet var emergencyspeedvalue: UILabel!
+    @IBOutlet weak var alertcounter: UISlider!
+    @IBOutlet var alertcountervalue: UILabel!
     @IBOutlet var typeofvehicle: UISegmentedControl!
     var inwardVelocity: Double = 0.0;
     var stadyvelocity: Double = 0.0;
@@ -65,9 +38,12 @@ class ViewController: UIViewController {
     var mic: AKMicrophone!
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
-    var count=0
+    var acount=0
+    var scount=0
     var avgFreq = 0.0
-    var fft:AKFFT!
+    var aflag = false
+    var sflag = true
+//    var fft:AKFFT!
     var data:[Double]!
     var fdata:[Double]!
 
@@ -118,10 +94,14 @@ class ViewController: UIViewController {
 //            print("Start");
             audioAnalyse.setTitle("Tap to Stop", for: .normal);
             mic.start()
-            fft = AKFFT(mic)
+//            fft = AKFFT(mic)
+//            print("in start Counter: ",acount)
             Timer.scheduledTimer(timeInterval: 0.0025, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
          }else{
 //            print("Stop");
+            acount=0
+            self.view.backgroundColor = .white
+//            print("in stop Counter: ",acount)
             audioAnalyse.setTitle("Tap to Start", for: .normal);
             mic.stop();
         }
@@ -136,7 +116,32 @@ class ViewController: UIViewController {
         let v3 = windvelocity + (userv + emerv) * 0.44704
         inwardVelocity = (v1/v2) * sfrequency
         outwardvelocity = (v1/v3)*sfrequency
+//        print("Frequency1: ",outwardvelocity)
+//        print("Frequency3: ",inwardVelocity)
     }
+    
+    
+    @IBAction func alertCounterChanged(_ sender: UISlider) {
+        let currentValue = Int(sender.value)
+        
+        alertcountervalue.text = "\(currentValue)"
+    }
+    
+    @IBAction func userSpeedChanged(_ sender: UISlider) {
+        let currentValue1 = Int(sender.value)
+        
+        userspeedvalue.text = "\(currentValue1)"
+    }
+    
+    @IBAction func emergencySpeedChanged(_ sender: UISlider) {
+        let currentValue2 = Int(sender.value)
+        
+        emergencyspeedvalue.text = "\(currentValue2)"
+    }
+    
+    
+    
+    
     
     @IBAction func calculateFrequency(sender: UIButton){
         switch typeofvehicle.selectedSegmentIndex {
@@ -160,163 +165,36 @@ class ViewController: UIViewController {
         
          if tracker.amplitude > 0.1 {
             if( outwardvelocity < tracker.frequency && tracker.frequency < inwardVelocity ){
-                count += 1;
-                if(count > 10){
+                acount += 1
+//                print("Counter: ",acount)
+                if(acount > Int(alertcounter.value) && aflag==false){
                     print("Alert")
+                    aflag=true
+                    self.view.backgroundColor = .red
                 }else{
                     print("Safe")
+                    aflag=false
+                    self.view.backgroundColor = .green
                 }
+            }else{
+                if(acount>0){
+                    acount -= 1
+                }
+                if(acount<15 && aflag==true){
+                    aflag = false
+                    self.view.backgroundColor = .green
+                }
+                
+                
             }
             
-//            fdata.append(tracker.frequency)
-//            if(fdata.count==100){
-//                print(fdata)
-//                fdata.removeAll()
-//            }
-            print("Amplitude: ",tracker.amplitude)
-            print("Frequency: ",tracker.frequency)
-//            data = fft.fftData
-//            let max = fft.fftData.max()!
-//            let index = fft.fftData.index(of: max)
-            //            print("Max: ",max)
-            //            print("index: ",index ?? 0.0)
-//            var total=0.0
-            //            var ctotal=0
-//            for i in stride(from: 0, to: data.count, by: 1){
-//                //                tracker2=AKFrequencyTracker.init(data[i])
-//                total+=data[i]
-//            }
-//            print("Count Data: ",data.count)
-//            print("Max: ",max)
-//            print("index: ",index ?? 0.0)
-            //            print("Total: ",total)
-
-            
-            
+//            print("Amplitude: ",tracker.amplitude)
+//            print("Frequency: ",tracker.frequency)
             frequencyLabel.text = String(format: "%0.1f Hz", tracker.frequency)
-            avgFreq+=tracker.frequency;
-            count+=1;
-//            print("Count: ",count)
-//            print("AvgFreq: ",avgFreq)
-//            var frequency = Float(tracker.frequency)
-//            while (frequency > Float(noteFrequencies[noteFrequencies.count-1])) {
-//                frequency = frequency / 2.0
-//            }
-//            while (frequency < Float(noteFrequencies[0])) {
-//                frequency = frequency * 2.0
-//            }
-            
-//            var minDistance: Float = 10000.0
-//            var index = 0
-//            
-//            for i in 0..<noteFrequencies.count {
-//                let distance = fabsf(Float(noteFrequencies[i]) - frequency)
-//                if (distance < minDistance){
-//                    index = i
-//                    minDistance = distance
-//                }
-//            }
-//            let octave = Int(log2f(Float(tracker.frequency) / frequency))
-//            noteNameWithSharpsLabel.text = "\(noteNamesWithSharps[index])\(octave)"
-//            noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
-       }
+            }
         amplitudeLabel.text = String(format: "%0.2f", tracker.amplitude)
     }
     
     
     
 }
-
-//class ViewController: UIViewController,AVAudioRecorderDelegate {
-//@IBOutlet var recordButton: UIButton!
-//var recordingSession: AVAudioSession!
-//var audioRecorder: AVAudioRecorder!
-//
-//
-//override func viewDidLoad() {
-//    super.viewDidLoad()
-//    // Do any additional setup after loading the view, typically from a nib.
-//    recordingSession = AVAudioSession.sharedInstance()
-//    do {
-//        try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-//        try recordingSession.setActive(true)
-//        recordingSession.requestRecordPermission() { [unowned self] allowed in
-//            DispatchQueue.main.async {
-//                if allowed {
-//                    self.loadRecordingUI()
-//                } else {
-//                    // failed to record!
-//                }
-//            }
-//        }
-//    } catch {
-//        // failed to record!
-//    }
-//}
-//override func didReceiveMemoryWarning() {
-//    super.didReceiveMemoryWarning()
-//    // Dispose of any resources that can be recreated.
-//}
-//
-//func loadRecordingUI() {
-//    //        recordButton = UIButton(frame: CGRect(x: 64, y: 64, width: 128, height: 64))
-//    //        recordButton.setTitle("Tap to Record", for: .normal)
-//    //        recordButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title1)
-//    //        recordButton.addTarget(self, action: #selector(recordTapped), for: .touchUpInside)
-//    //        view.addSubview(recordButton)
-//}
-//
-//func startRecording() {
-//    print("Inside Recording")
-//    let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
-//    
-//    let settings = [
-//        AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-//        AVSampleRateKey: 12000,
-//        AVNumberOfChannelsKey: 1,
-//        AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-//    ]
-//    
-//    do {
-//        audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
-//        audioRecorder.delegate = self
-//        audioRecorder.record()
-//        print("The value of the path is: ",audioFilename)
-//        recordButton.setTitle("Tap to Stop", for: .normal)
-//    } catch {
-//        finishRecording(success: false)
-//    }
-//}
-//
-//func getDocumentsDirectory() -> URL {
-//    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//    let documentsDirectory = paths[0]
-//    return documentsDirectory
-//}
-//
-//func finishRecording(success: Bool) {
-//    audioRecorder.stop()
-//    audioRecorder = nil
-//    
-//    if success {
-//        recordButton.setTitle("Tap to Re-record", for: .normal)
-//    } else {
-//        recordButton.setTitle("Tap to Record", for: .normal)
-//        // recording failed :(
-//    }
-//}
-//
-//@IBAction func recordTapped(sender: UIButton) {
-//    if audioRecorder == nil {
-//        startRecording()
-//    } else {
-//        finishRecording(success: true)
-//    }
-//}
-//
-//func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-//    if !flag {
-//        finishRecording(success: false)
-//    }
-//}
-//}
