@@ -116,8 +116,8 @@ class ViewController: UIViewController {
         let v3 = windvelocity + (userv + emerv) * 0.44704
         inwardVelocity = (v1/v2) * sfrequency
         outwardvelocity = (v1/v3)*sfrequency
-//        print("Frequency1: ",outwardvelocity)
-//        print("Frequency3: ",inwardVelocity)
+        print("Frequency1: ",outwardvelocity)
+        print("Frequency3: ",inwardVelocity)
     }
     
     
@@ -166,21 +166,25 @@ class ViewController: UIViewController {
          if tracker.amplitude > 0.1 {
             if( outwardvelocity < tracker.frequency && tracker.frequency < inwardVelocity ){
                 acount += 1
-//                print("Counter: ",acount)
+                print("Counter: ",acount)
                 if(acount > Int(alertcounter.value) && aflag==false){
                     print("Alert")
                     aflag=true
                     self.view.backgroundColor = .red
-                }else{
+                }else if (acount < Int(alertcounter.value) && aflag==true) {
                     print("Safe")
                     aflag=false
                     self.view.backgroundColor = .green
+                }
+                else {
+                    self.view.backgroundColor = .white
                 }
             }else{
                 if(acount>0){
                     acount -= 1
                 }
-                if(acount<15 && aflag==true){
+                if(acount<Int(alertcounter.value) && aflag==true){
+                    print("Safe2")
                     aflag = false
                     self.view.backgroundColor = .green
                 }
