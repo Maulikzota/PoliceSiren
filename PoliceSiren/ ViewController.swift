@@ -96,11 +96,12 @@ class ViewController: UIViewController {
             mic.start()
 //            fft = AKFFT(mic)
 //            print("in start Counter: ",acount)
-            Timer.scheduledTimer(timeInterval: 0.0025, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
+            Timer.scheduledTimer(timeInterval: 0.002, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
          }else{
 //            print("Stop");
             acount=0
             self.view.backgroundColor = .white
+            aflag = false
 //            print("in stop Counter: ",acount)
             audioAnalyse.setTitle("Tap to Start", for: .normal);
             mic.stop();
@@ -149,47 +150,44 @@ class ViewController: UIViewController {
             calculateVelocity(sfrequency: 495.00);
             break;
         case 1:
-            calculateVelocity(sfrequency: 700.00);
+            calculateVelocity(sfrequency: 1000.00);
             break;
         case 2:
             calculateVelocity(sfrequency: 1500.00);
             break;
         default:
-            calculateVelocity(sfrequency: 700.00);
+            calculateVelocity(sfrequency: 1000.00);
             break;
         }
     }
     
     
     func updateUI() {
-        
+//        outwardvelocity < tracker.frequency && tracker.frequency < inwardVelocity 
          if tracker.amplitude > 0.1 {
-            if( outwardvelocity < tracker.frequency && tracker.frequency < inwardVelocity ){
+            if( outwardvelocity < tracker.frequency){
                 acount += 1
                 print("Counter: ",acount)
                 if(acount > Int(alertcounter.value) && aflag==false){
+                    aflag = true
                     print("Alert")
-                    aflag=true
                     self.view.backgroundColor = .red
-                }else if (acount < Int(alertcounter.value) && aflag==true) {
-                    print("Safe")
-                    aflag=false
-                    self.view.backgroundColor = .green
                 }
-                else {
-                    self.view.backgroundColor = .white
+                if (acount < Int(alertcounter.value) && aflag==true) {
+                    aflag = false
+                    print("Safe")
+                    self.view.backgroundColor = .green
                 }
             }else{
                 if(acount>0){
                     acount -= 1
+                    print("Counter: ",acount)
+                    if(acount < Int(alertcounter.value) && aflag==true){
+                        print("Safe2")
+                        aflag = false
+                        self.view.backgroundColor = .blue
+                    }
                 }
-                if(acount<Int(alertcounter.value) && aflag==true){
-                    print("Safe2")
-                    aflag = false
-                    self.view.backgroundColor = .green
-                }
-                
-                
             }
             
 //            print("Amplitude: ",tracker.amplitude)
