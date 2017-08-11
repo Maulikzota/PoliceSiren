@@ -143,16 +143,16 @@ class ViewController: UIViewController {
     @IBAction func calculateFrequency(_ sender: UIButton){
         switch typeofvehicle.selectedSegmentIndex {
         case 0:
-            calculateVelocity(495.00);
-            break;
-        case 1:
-            calculateVelocity(1000.00);
-            break;
-        case 2:
             calculateVelocity(1500.00);
             break;
+        case 1:
+            calculateVelocity(1500.00);
+            break;
+        case 2:
+            calculateVelocity(2000.00);
+            break;
         default:
-            calculateVelocity(1000.00);
+            calculateVelocity(1500.00);
             break;
         }
     }
@@ -164,9 +164,11 @@ class ViewController: UIViewController {
             if( outwardvelocity < tracker.frequency){
                 acount += 1
                 print("Counter: ",acount)
+                print("Counter: ",tracker.frequency)
                 if(acount > Int(alertcounter.value) && aflag==false){
-                    aflag = true
                     print("Alert")
+                    aflag = true
+                    scount=0
                     self.view.backgroundColor = .red
                 }
                 if (acount < Int(alertcounter.value) && aflag==true) {
@@ -175,15 +177,17 @@ class ViewController: UIViewController {
                     self.view.backgroundColor = .green
                 }
             }else{
-                if(acount>0){
-                    acount -= 1
-                    print("Counter: ",acount)
-                    if(acount < Int(alertcounter.value) && aflag==true){
+                //if(acount>0){
+                    scount += 1
+                    print("Counter: ",scount)
+                    print("Counter: ",tracker.frequency)
+                    if(scount > Int(alertcounter.value) && aflag==true){
                         print("Safe2")
                         aflag = false
+                        acount=0
                         self.view.backgroundColor = .blue
                     }
-                }
+                //}
             }
             
 //            print("Amplitude: ",tracker.amplitude)
