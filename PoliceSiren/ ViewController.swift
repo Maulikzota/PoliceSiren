@@ -11,9 +11,6 @@ import UIKit
 import AudioKit
 
 
-
-
-
 class ViewController: UIViewController {
     
     @IBOutlet var frequencyLabel: UILabel!
@@ -88,7 +85,7 @@ class ViewController: UIViewController {
         AudioKit.start()
     }
     
-    @IBAction func recordTapped(sender: UIButton) {
+    @IBAction func recordTapped(_ sender: UIButton) {
         let text = audioAnalyse.titleLabel!.text
          if text == "Tap to Start"{
 //            print("Start");
@@ -108,7 +105,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func calculateVelocity(sfrequency: Double){
+    func calculateVelocity(_ sfrequency: Double){
         let windvelocity = 340.29
         let userv = Int(userspeed.value)
         let emerv = Int(emergencyspeed.value)
@@ -144,19 +141,19 @@ class ViewController: UIViewController {
     
     
     
-    @IBAction func calculateFrequency(sender: UIButton){
+    @IBAction func calculateFrequency(_ sender: UIButton){
         switch typeofvehicle.selectedSegmentIndex {
         case 0:
-            calculateVelocity(sfrequency: 495.00);
+            calculateVelocity(495.00);
             break;
         case 1:
-            calculateVelocity(sfrequency: 1000.00);
+            calculateVelocity(1000.00);
             break;
         case 2:
-            calculateVelocity(sfrequency: 1500.00);
+            calculateVelocity(1500.00);
             break;
         default:
-            calculateVelocity(sfrequency: 1000.00);
+            calculateVelocity(1000.00);
             break;
         }
     }
