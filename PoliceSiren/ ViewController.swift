@@ -10,7 +10,6 @@ import UIKit
 //import AVFoundation
 import AudioKit
 
-
 class ViewController: UIViewController {
     
     @IBOutlet var frequencyLabel: UILabel!

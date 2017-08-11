@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FCC53761F3E0ED7009B4BD8 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCC53751F3E0ED7009B4BD8 /* AudioKit.framework */; };
+		3FCC537E1F3E1379009B4BD8 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCC537D1F3E1379009B4BD8 /* AudioKit.framework */; };
+		3FCC537F1F3E1379009B4BD8 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCC537D1F3E1379009B4BD8 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		680E257A1DDF825800DD48FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E25791DDF825800DD48FD /* AppDelegate.swift */; };
 		680E257C1DDF825800DD48FD /*  ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E257B1DDF825800DD48FD /*  ViewController.swift */; };
 		680E257F1DDF825800DD48FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680E257D1DDF825800DD48FD /* Main.storyboard */; };
@@ -37,12 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3F61CB581E3A5E1100A2A83C /* Embed Frameworks */ = {
+		3FCC53801F3E1379009B4BD8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3FCC537F1F3E1379009B4BD8 /* AudioKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,7 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3FCC53751F3E0ED7009B4BD8 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = ../../Downloads/AudioKit.framework; sourceTree = "<group>"; };
+		3FCC537D1F3E1379009B4BD8 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		680E25761DDF825800DD48FD /* PoliceSiren.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliceSiren.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		680E25791DDF825800DD48FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		680E257B1DDF825800DD48FD /*  ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " ViewController.swift"; sourceTree = "<group>"; };
@@ -73,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FCC53761F3E0ED7009B4BD8 /* AudioKit.framework in Frameworks */,
+				3FCC537E1F3E1379009B4BD8 /* AudioKit.framework in Frameworks */,
 				680E25AB1DDF82BE00DD48FD /* AVKit.framework in Frameworks */,
 				680E25A91DDF82B700DD48FD /* AVFoundation.framework in Frameworks */,
 			);
@@ -99,6 +101,7 @@
 		680E256D1DDF825400DD48FD = {
 			isa = PBXGroup;
 			children = (
+				3FCC537D1F3E1379009B4BD8 /* AudioKit.framework */,
 				680E25781DDF825800DD48FD /* PoliceSiren */,
 				680E258D1DDF825800DD48FD /* PoliceSirenTests */,
 				680E25981DDF825900DD48FD /* PoliceSirenUITests */,
@@ -151,7 +154,6 @@
 		680E25A71DDF82B700DD48FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3FCC53751F3E0ED7009B4BD8 /* AudioKit.framework */,
 				680E25AA1DDF82BE00DD48FD /* AVKit.framework */,
 				680E25A81DDF82B700DD48FD /* AVFoundation.framework */,
 			);
@@ -168,7 +170,7 @@
 				680E25721DDF825500DD48FD /* Sources */,
 				680E25731DDF825500DD48FD /* Frameworks */,
 				680E25741DDF825500DD48FD /* Resources */,
-				3F61CB581E3A5E1100A2A83C /* Embed Frameworks */,
+				3FCC53801F3E1379009B4BD8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -451,7 +453,6 @@
 		680E259F1DDF825900DD48FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 44FG5486PC;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -470,7 +471,6 @@
 		680E25A01DDF825900DD48FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 44FG5486PC;
 				FRAMEWORK_SEARCH_PATHS = (
