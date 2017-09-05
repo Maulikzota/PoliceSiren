@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     
     var mic: AKMicrophone!
     var tracker: AKFrequencyTracker!
+    var highpassfilter : AKHighPassFilter!
     var silence: AKBooster!
     var acount=0
     var scount=0
@@ -75,7 +76,10 @@ class ViewController: UIViewController {
         
         AKSettings.audioInputEnabled = true
         mic = AKMicrophone()
-        tracker = AKFrequencyTracker.init(mic)
+        highpassfilter = AKHighPassFilter(mic)
+        highpassfilter.cutoffFrequency = 3500
+        highpassfilter.resonance = 0.0
+        tracker = AKFrequencyTracker.init(highpassfilter)
 //        let bpf = AKBandPassFilter(tracker)
 //        bpf.centerFrequency=1500
 //        bpf.bandwidth=600
@@ -113,8 +117,8 @@ class ViewController: UIViewController {
         let v3 = windvelocity + (userv + emerv) * 0.44704
         inwardVelocity = (v1/v2) * sfrequency
         outwardvelocity = (v1/v3)*sfrequency
-        print("Frequency1: ",outwardvelocity)
-        print("Frequency3: ",inwardVelocity)
+        print("Frequency1 or Outward: ",outwardvelocity)
+        print("Frequency3 or Inward: ",inwardVelocity)
     }
     
     
@@ -164,11 +168,11 @@ class ViewController: UIViewController {
             if( outwardvelocity < tracker.frequency){
                 acount += 1
                 print("Counter: ",acount)
-                print("Counter: ",tracker.frequency)
+                print("alert frequency: ",tracker.frequency)
                 if(acount > Int(alertcounter.value) && aflag==false){
                     print("Alert")
                     aflag = true
-                    scount=0
+                    //scount=0
                     self.view.backgroundColor = .red
                 }
                 if (acount < Int(alertcounter.value) && aflag==true) {
@@ -177,17 +181,18 @@ class ViewController: UIViewController {
                     self.view.backgroundColor = .green
                 }
             }else{
-                //if(acount>0){
-                    scount += 1
-                    print("Counter: ",scount)
-                    print("Counter: ",tracker.frequency)
-                    if(scount > Int(alertcounter.value) && aflag==true){
+                if(acount>0){
+//                    scount += 1
+                    acount -= 1
+                    print("Counter: ",acount)
+                    print("safe frequency: ",tracker.frequency)
+                    if(acount < Int(alertcounter.value) && aflag==true){
                         print("Safe2")
                         aflag = false
                         acount=0
                         self.view.backgroundColor = .blue
                     }
-                //}
+                }
             }
             
 //            print("Amplitude: ",tracker.amplitude)
