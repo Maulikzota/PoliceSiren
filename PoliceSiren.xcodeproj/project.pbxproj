@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FA5768920EFCF1E00F417B2 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5768720EFCF1D00F417B2 /* AudioKit.framework */; };
 		3FA5768A20EFCF1E00F417B2 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5768720EFCF1D00F417B2 /* AudioKit.framework */; };
 		3FA5768B20EFCF1E00F417B2 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5768720EFCF1D00F417B2 /* AudioKit.framework */; };
-		3FA5768C20EFCF1E00F417B2 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5768820EFCF1E00F417B2 /* AudioKitUI.framework */; };
 		3FA5768D20EFCF1E00F417B2 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5768820EFCF1E00F417B2 /* AudioKitUI.framework */; };
 		3FA5768E20EFCF1E00F417B2 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5768820EFCF1E00F417B2 /* AudioKitUI.framework */; };
+		3FA5768F20EFD4CA00F417B2 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5768720EFCF1D00F417B2 /* AudioKit.framework */; };
+		3FA5769020EFD4CA00F417B2 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5768720EFCF1D00F417B2 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3FA5769120EFD4CA00F417B2 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5768820EFCF1E00F417B2 /* AudioKitUI.framework */; };
+		3FA5769220EFD4CA00F417B2 /* AudioKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA5768820EFCF1E00F417B2 /* AudioKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		680E257A1DDF825800DD48FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E25791DDF825800DD48FD /* AppDelegate.swift */; };
 		680E257C1DDF825800DD48FD /*  ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E257B1DDF825800DD48FD /*  ViewController.swift */; };
 		680E257F1DDF825800DD48FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680E257D1DDF825800DD48FD /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3FA5769220EFD4CA00F417B2 /* AudioKitUI.framework in Embed Frameworks */,
+				3FA5769020EFD4CA00F417B2 /* AudioKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,8 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FA5768C20EFCF1E00F417B2 /* AudioKitUI.framework in Frameworks */,
-				3FA5768920EFCF1E00F417B2 /* AudioKit.framework in Frameworks */,
+				3FA5769120EFD4CA00F417B2 /* AudioKitUI.framework in Frameworks */,
+				3FA5768F20EFD4CA00F417B2 /* AudioKit.framework in Frameworks */,
 				680E25AB1DDF82BE00DD48FD /* AVKit.framework in Frameworks */,
 				680E25A91DDF82B700DD48FD /* AVFoundation.framework in Frameworks */,
 			);
@@ -486,7 +490,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSiren;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -505,7 +509,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSiren;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -523,7 +527,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSirenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PoliceSiren.app/PoliceSiren";
 			};
@@ -542,7 +546,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSirenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PoliceSiren.app/PoliceSiren";
 			};
@@ -560,7 +564,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSirenUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = PoliceSiren;
 			};
@@ -578,7 +582,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SirenDetection.PoliceSirenUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = PoliceSiren;
 			};

@@ -15,12 +15,17 @@ class ViewController: UIViewController {
     @IBOutlet var frequencyLabel: UILabel!
     @IBOutlet var amplitudeLabel: UILabel!
     @IBOutlet var audioAnalyse:UIButton!
+    
     @IBOutlet weak var userspeed: UISlider!
     @IBOutlet var userspeedvalue: UILabel!
+    
     @IBOutlet weak var emergencyspeed: UISlider!
     @IBOutlet var emergencyspeedvalue: UILabel!
+    
     @IBOutlet weak var alertcounter: UISlider!
-    @IBOutlet var alertcountervalue: UILabel!
+    @IBOutlet weak var alertcountervalue: UILabel!
+    
+//    @IBOutlet var alertcountervalue: UILabel!
     @IBOutlet var typeofvehicle: UISegmentedControl!
     var inwardVelocity: Double = 0.0;
     var stadyvelocity: Double = 0.0;
@@ -99,7 +104,9 @@ class ViewController: UIViewController {
             mic.start()
 //            fft = AKFFT(mic)
 //            print("in start Counter: ",acount)
+//            Timer.scheduledTimer(timeInterval: 0.002, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
             Timer.scheduledTimer(timeInterval: 0.002, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
+//            Timer.scheduledTimer(timeInterval: 0.002, target: self, selector: @obj(ViewController.updateUI), userInfo: nil, repeats: true)
          }else{
 //            print("Stop");
             acount=0
@@ -125,23 +132,23 @@ class ViewController: UIViewController {
     }
     
 
-////    @IBAction func alertCounterChanged(_ sender: UISlider) {
-//        let currentValue = Int(sender.value)
-//
-//        alertcountervalue.text = "\(currentValue)"
-//    }
-//
-////    @IBAction func userSpeedChanged(_ sender: UISlider) {
-//        let currentValue1 = Int(sender.value)
-//
-//        userspeedvalue.text = "\(currentValue1)"
-//    }
-//
-////    @IBAction func emergencySpeedChanged(_ sender: UISlider) {
-//        let currentValue2 = Int(sender.value)
-//
-//        emergencyspeedvalue.text = "\(currentValue2)"
-//    }
+    @IBAction func alertCounterChanged(_ sender: UISlider) {
+        let currentValue = Int(sender.value)
+
+        alertcountervalue.text = "\(currentValue)"
+    }
+
+    @IBAction func userSpeedChanged(_ sender: UISlider) {
+        let currentValue1 = Int(sender.value)
+
+        userspeedvalue.text = "\(currentValue1)"
+    }
+
+    @IBAction func emergencySpeedChanged(_ sender: UISlider) {
+        let currentValue2 = Int(sender.value)
+
+        emergencyspeedvalue.text = "\(currentValue2)"
+    }
 
 
     
@@ -165,7 +172,7 @@ class ViewController: UIViewController {
     }
 
     
-    func updateUI() {
+   @objc func updateUI() {
 //        outwardvelocity < tracker.frequency && tracker.frequency < inwardVelocity
          if tracker.amplitude > 0.1 {
             if( outwardvelocity < tracker.frequency){
