@@ -61,19 +61,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        AKAudioFile.cleanTempDirectory()
+        AKAudioFile.cleanTempDirectory()
         
         
-//        AKSettings.audioInputEnabled = true
+        AKSettings.audioInputEnabled = true
+
+
         AKSettings.sampleRate = 44100
         AKSettings.numberOfChannels = 1
         AKSettings.bufferLength = .longest
 
-        
+
         do{
             try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
         } catch { print("Errored setting category.")}
-        
+
         AKSettings.audioInputEnabled = true
         mic = AKMicrophone()
         highpassfilter = AKHighPassFilter(mic)
@@ -87,7 +89,8 @@ class ViewController: UIViewController {
         AudioKit.output = silence
         AudioKit.start()
     }
-    
+
+
     @IBAction func recordTapped(_ sender: UIButton) {
         let text = audioAnalyse.titleLabel!.text
          if text == "Tap to Start"{
@@ -116,31 +119,31 @@ class ViewController: UIViewController {
         let v2 = windvelocity - (userv + emerv) * 0.44704
         let v3 = windvelocity + (userv + emerv) * 0.44704
         inwardVelocity = (v1/v2) * sfrequency
-        outwardvelocity = (v1/v3)*sfrequency
+        outwardvelocity = (v1/v3) * sfrequency
         print("Frequency1 or Outward: ",outwardvelocity)
         print("Frequency3 or Inward: ",inwardVelocity)
     }
     
-    
-    @IBAction func alertCounterChanged(_ sender: UISlider) {
-        let currentValue = Int(sender.value)
-        
-        alertcountervalue.text = "\(currentValue)"
-    }
-    
-    @IBAction func userSpeedChanged(_ sender: UISlider) {
-        let currentValue1 = Int(sender.value)
-        
-        userspeedvalue.text = "\(currentValue1)"
-    }
-    
-    @IBAction func emergencySpeedChanged(_ sender: UISlider) {
-        let currentValue2 = Int(sender.value)
-        
-        emergencyspeedvalue.text = "\(currentValue2)"
-    }
-    
-    
+
+////    @IBAction func alertCounterChanged(_ sender: UISlider) {
+//        let currentValue = Int(sender.value)
+//
+//        alertcountervalue.text = "\(currentValue)"
+//    }
+//
+////    @IBAction func userSpeedChanged(_ sender: UISlider) {
+//        let currentValue1 = Int(sender.value)
+//
+//        userspeedvalue.text = "\(currentValue1)"
+//    }
+//
+////    @IBAction func emergencySpeedChanged(_ sender: UISlider) {
+//        let currentValue2 = Int(sender.value)
+//
+//        emergencyspeedvalue.text = "\(currentValue2)"
+//    }
+
+
     
     
     
@@ -160,10 +163,10 @@ class ViewController: UIViewController {
             break;
         }
     }
-    
+
     
     func updateUI() {
-//        outwardvelocity < tracker.frequency && tracker.frequency < inwardVelocity 
+//        outwardvelocity < tracker.frequency && tracker.frequency < inwardVelocity
          if tracker.amplitude > 0.1 {
             if( outwardvelocity < tracker.frequency){
                 acount += 1
@@ -194,14 +197,15 @@ class ViewController: UIViewController {
                     }
                 }
             }
-            
+
 //            print("Amplitude: ",tracker.amplitude)
 //            print("Frequency: ",tracker.frequency)
             frequencyLabel.text = String(format: "%0.1f Hz", tracker.frequency)
             }
         amplitudeLabel.text = String(format: "%0.2f", tracker.amplitude)
     }
-    
+
     
     
 }
+
