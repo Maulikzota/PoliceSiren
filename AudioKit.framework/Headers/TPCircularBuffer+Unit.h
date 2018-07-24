@@ -1,12 +1,11 @@
 //
 //  TPCircularBuffer+Unit.h
 //
-//  Created by David O'Neill on 8/21/17.
+//  Created by David O'Neill, revision history on Github.
 //  Copyright © 2017 O'Neill. All rights reserved.
 //
 
-#ifndef TPCircularBuffer_Unit_h
-#define TPCircularBuffer_Unit_h
+#pragma once
 
 #ifdef __cplusplus
 extern "C" {
@@ -151,4 +150,4 @@ void TPCircularBufferUnitConsume(TPCircularBuffer *buffer);
 }
 #endif
 
-#endif /* TPCircularBuffer_Unit_h */
+

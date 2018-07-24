@@ -73,7 +73,7 @@ class ViewController: UIViewController {
 
 
         AKSettings.sampleRate = 44100
-        AKSettings.numberOfChannels = 1
+        //AKSettings.numberOfChannels = 1
         AKSettings.bufferLength = .longest
 
 
@@ -92,7 +92,11 @@ class ViewController: UIViewController {
 //        bpf.bandwidth=600
         silence = AKBooster(tracker, gain: 0)
         AudioKit.output = silence
-        AudioKit.start()
+        do {
+            try AudioKit.start()
+        } catch {
+            AKLog("AudioKit did not start!")
+        }
     }
 
 
