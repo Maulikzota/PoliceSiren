@@ -6,47 +6,47 @@
 	<dict>
 		<key>Headers/AudioKitUI-Swift.h</key>
 		<data>
-		IZlPdZ3MiiUkU1JTQ03v6eyEE/8=
+		ki3gtMnbKXwqNm1O8AJC5YrhMiQ=
 		</data>
 		<key>Headers/AudioKitUI.h</key>
 		<data>
-		A13wZ52o92jbVQpui6LFmkTl8kU=
+		le9dVc/sOW0I1vOKJ4sbYVqgznc=
 		</data>
 		<key>Headers/EZAudioDisplayLink.h</key>
 		<data>
-		L6rllSHQyL7A4ahTF5mITqyvxEU=
+		3AvJe/WAdgyN9lnumomSNPgFiKo=
 		</data>
 		<key>Headers/EZAudioPlot.h</key>
 		<data>
-		EgxXRO6W6Rdy1h7Oe5vlbPLaMmA=
+		wmoz0H6st4HmiqNhZxf05Em9RS0=
 		</data>
 		<key>Headers/EZAudioPlotGL.h</key>
 		<data>
-		dvcXVlxj/8VOO3h8QCwFSR0iqbU=
+		/snM78U+bILnjGfPcvIAu3OZmLo=
 		</data>
 		<key>Headers/EZPlot.h</key>
 		<data>
-		CffAcJWPu2MVYFuOfFRaQtl6XYo=
+		ow94rD3WCyxlWCzdpV76+GVIwSk=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		eI1hgMei/uksgxT/fx05bPO6J/Q=
+		VoHBAD3rGiCkOxdart1hojWl4rM=
 		</data>
 		<key>Modules/AudioKitUI.swiftmodule/i386.swiftdoc</key>
 		<data>
-		H0kqQYLxV13n5Zl5n5PRVvP+ows=
+		rZuIQtyHU3uwRIUWqWo/ZItJpww=
 		</data>
 		<key>Modules/AudioKitUI.swiftmodule/i386.swiftmodule</key>
 		<data>
-		pyLM6sSl7PV4ntp6sYW3ED5VdwA=
+		+OPkcLmdEaUFhwWCt2OM5eV4gi4=
 		</data>
 		<key>Modules/AudioKitUI.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		4piUXrmF+GkvKI6pbRm8o69PFgU=
+		HUPNpdkH0MVdlzHwq8Z+F0ftn2E=
 		</data>
 		<key>Modules/AudioKitUI.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		rfJRt0/UiE/rvnG49Vu2GGxwjhc=
+		/vjvWp5514IQvLlOeZ5I+D+Vgbg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -59,110 +59,110 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IZlPdZ3MiiUkU1JTQ03v6eyEE/8=
+			ki3gtMnbKXwqNm1O8AJC5YrhMiQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			ntEH4hAhhR0Fod9a8QEmqOg9Cyft7UfVPB9kROX4o3M=
+			vFvvuf6HkXPREyggl0oDdt3nhHXLfuVSXdDawM/x2mE=
 			</data>
 		</dict>
 		<key>Headers/AudioKitUI.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			A13wZ52o92jbVQpui6LFmkTl8kU=
+			le9dVc/sOW0I1vOKJ4sbYVqgznc=
 			</data>
 			<key>hash2</key>
 			<data>
-			2Ejqvfr1N9P7inw3hJvaBiqg1tLfWVsIp52RMG8UiH0=
+			h+Aqej/L7xKxqp08ImIXf5JZdz90r96A9ISquV+H/xQ=
 			</data>
 		</dict>
 		<key>Headers/EZAudioDisplayLink.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			L6rllSHQyL7A4ahTF5mITqyvxEU=
+			3AvJe/WAdgyN9lnumomSNPgFiKo=
 			</data>
 			<key>hash2</key>
 			<data>
-			N3BNgtlJtVHFnOmFWsUlDYnVH6QYFJOoGDKjxOTcnaI=
+			t1RWAAfVSEsKRWmw+tjGm4RuYen1tDP72G3qKuCccJg=
 			</data>
 		</dict>
 		<key>Headers/EZAudioPlot.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EgxXRO6W6Rdy1h7Oe5vlbPLaMmA=
+			wmoz0H6st4HmiqNhZxf05Em9RS0=
 			</data>
 			<key>hash2</key>
 			<data>
-			og8o2x4gQNllZ6sCVgoWvZF+Z3SU318OhblXkBvoKTw=
+			iGhyNTEeLkHmleunrTl8YBcLvtkhDdho9mqKQX1vjXQ=
 			</data>
 		</dict>
 		<key>Headers/EZAudioPlotGL.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dvcXVlxj/8VOO3h8QCwFSR0iqbU=
+			/snM78U+bILnjGfPcvIAu3OZmLo=
 			</data>
 			<key>hash2</key>
 			<data>
-			Nr3+fPPu0TliFlWfOZapX2YDCCW1Q074bVzTQdhKfXw=
+			Ev3LLoEHvD+/ys65CI1iBiU+4QH6Qj2ZHt5YyJ+xqX8=
 			</data>
 		</dict>
 		<key>Headers/EZPlot.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CffAcJWPu2MVYFuOfFRaQtl6XYo=
+			ow94rD3WCyxlWCzdpV76+GVIwSk=
 			</data>
 			<key>hash2</key>
 			<data>
-			UTTJnOjadXCZNuj0wVTjRJA6UgDgX6wBSmgYKxtVLdE=
+			odGT+C5OSjtgLHzV/TTYds2FkIJcK2vdIyYiJ5PmiTE=
 			</data>
 		</dict>
 		<key>Modules/AudioKitUI.swiftmodule/i386.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			H0kqQYLxV13n5Zl5n5PRVvP+ows=
+			rZuIQtyHU3uwRIUWqWo/ZItJpww=
 			</data>
 			<key>hash2</key>
 			<data>
-			INC0ru+OiY9/JKlBwYxrtvk1Z/OA3xfUEB9psrxMDDg=
+			5+Igf3sNVh2rqcPZ8aPH5XpNxiTu4iNnYc95jtZEnIo=
 			</data>
 		</dict>
 		<key>Modules/AudioKitUI.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pyLM6sSl7PV4ntp6sYW3ED5VdwA=
+			+OPkcLmdEaUFhwWCt2OM5eV4gi4=
 			</data>
 			<key>hash2</key>
 			<data>
-			qXW8S0h0t8dsjwbsZW9l6++rTJM7EeDC9ICTYiOsGp8=
+			Sv5NlVJQSEC4qOTrc2HXpfc4i1y8vSgb4k5EnhLyG1M=
 			</data>
 		</dict>
 		<key>Modules/AudioKitUI.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4piUXrmF+GkvKI6pbRm8o69PFgU=
+			HUPNpdkH0MVdlzHwq8Z+F0ftn2E=
 			</data>
 			<key>hash2</key>
 			<data>
-			l5uOyxeyTJc0ibCoEgltISU8BdnZDi3eiieE/HHScTc=
+			EVXN3K/g18nnoJP2JUl3OH/H+LJuMDI4iIGCRJk1pco=
 			</data>
 		</dict>
 		<key>Modules/AudioKitUI.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rfJRt0/UiE/rvnG49Vu2GGxwjhc=
+			/vjvWp5514IQvLlOeZ5I+D+Vgbg=
 			</data>
 			<key>hash2</key>
 			<data>
-			bWQCy2QOGiFYc8RwbQvRYpbENPEwRCWw6Kd4sQFMB10=
+			AE52yrP/Ciy1312pApW3qW1YGbHU8zMFUogzqKDcQSU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
