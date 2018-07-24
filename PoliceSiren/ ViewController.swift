@@ -25,7 +25,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var alertcounter: UISlider!
     @IBOutlet weak var alertcountervalue: UILabel!
     
-//    @IBOutlet var alertcountervalue: UILabel!
     @IBOutlet var typeofvehicle: UISegmentedControl!
     var inwardVelocity: Double = 0.0;
     var stadyvelocity: Double = 0.0;
@@ -35,7 +34,7 @@ class ViewController: UIViewController {
 //    @IBOutlet var noteNameWithSharpsLabel: UILabel!
 //    @IBOutlet var noteNameWithFlatsLabel: UILabel!
 //    @IBOutlet var audioInputPlot: EZAudioPlot!
-    
+
     var mic: AKMicrophone!
     var tracker: AKFrequencyTracker!
     var highpassfilter : AKHighPassFilter!
@@ -45,23 +44,23 @@ class ViewController: UIViewController {
     var avgFreq = 0.0
     var aflag = false
     var sflag = true
-//    var fft:AKFFT!
+    //    var fft:AKFFT!
     var data:[Double]!
     var fdata:[Double]!
-
+    
     
     let noteFrequencies = [16.35,17.32,18.35,19.45,20.6,21.83,23.12,24.5,25.96,27.5,29.14,30.87]
     let noteNamesWithSharps = ["C", "C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
     let noteNamesWithFlats = ["C", "D♭","D","E♭","E","F","G♭","G","A♭","A","B♭","B"]
     
-//    func setupPlot() {
-//        let plot = AKNodeOutputPlot(mic, frame: audioInputPlot.bounds)
-//        plot.plotType = .rolling
-//        plot.shouldFill = true
-//        plot.shouldMirror = true
-//        plot.color = UIColor.blue
-//        audioInputPlot.addSubview(plot)
-//    }
+    //    func setupPlot() {
+    //        let plot = AKNodeOutputPlot(mic, frame: audioInputPlot.bounds)
+    //        plot.plotType = .rolling
+    //        plot.shouldFill = true
+    //        plot.shouldMirror = true
+    //        plot.color = UIColor.blue
+    //        audioInputPlot.addSubview(plot)
+    //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,26 +69,26 @@ class ViewController: UIViewController {
         
         
         AKSettings.audioInputEnabled = true
-
-
+        
+        
         AKSettings.sampleRate = 44100
         //AKSettings.numberOfChannels = 1
         AKSettings.bufferLength = .longest
-
-
+        
+        
         do{
             try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
         } catch { print("Errored setting category.")}
-
+        
         AKSettings.audioInputEnabled = true
         mic = AKMicrophone()
         highpassfilter = AKHighPassFilter(mic)
         highpassfilter.cutoffFrequency = 3500
         highpassfilter.resonance = 0.0
         tracker = AKFrequencyTracker.init(highpassfilter)
-//        let bpf = AKBandPassFilter(tracker)
-//        bpf.centerFrequency=1500
-//        bpf.bandwidth=600
+        //        let bpf = AKBandPassFilter(tracker)
+        //        bpf.centerFrequency=1500
+        //        bpf.bandwidth=600
         silence = AKBooster(tracker, gain: 0)
         AudioKit.output = silence
         do {
@@ -98,25 +97,23 @@ class ViewController: UIViewController {
             AKLog("AudioKit did not start!")
         }
     }
-
-
+    
+    
     @IBAction func recordTapped(_ sender: UIButton) {
         let text = audioAnalyse.titleLabel!.text
-         if text == "Tap to Start"{
-//            print("Start");
+        if text == "Tap to Start"{
+            //            print("Start");
             audioAnalyse.setTitle("Tap to Stop", for: .normal);
             mic.start()
-//            fft = AKFFT(mic)
-//            print("in start Counter: ",acount)
-//            Timer.scheduledTimer(timeInterval: 0.002, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
-            Timer.scheduledTimer(timeInterval: 0.002, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
-//            Timer.scheduledTimer(timeInterval: 0.002, target: self, selector: @obj(ViewController.updateUI), userInfo: nil, repeats: true)
-         }else{
-//            print("Stop");
+            //            fft = AKFFT(mic)
+            //            print("in start Counter: ",acount)
+            Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
+        }else{
+            //            print("Stop");
             acount=0
             self.view.backgroundColor = .white
             aflag = false
-//            print("in stop Counter: ",acount)
+            //            print("in stop Counter: ",acount)
             audioAnalyse.setTitle("Tap to Start", for: .normal);
             mic.stop();
         }
@@ -135,26 +132,26 @@ class ViewController: UIViewController {
         print("Frequency3 or Inward: ",inwardVelocity)
     }
     
-
+    
     @IBAction func alertCounterChanged(_ sender: UISlider) {
         let currentValue = Int(sender.value)
-
+        
         alertcountervalue.text = "\(currentValue)"
     }
-
+    
     @IBAction func userSpeedChanged(_ sender: UISlider) {
         let currentValue1 = Int(sender.value)
-
+        
         userspeedvalue.text = "\(currentValue1)"
     }
-
+    
     @IBAction func emergencySpeedChanged(_ sender: UISlider) {
         let currentValue2 = Int(sender.value)
-
+        
         emergencyspeedvalue.text = "\(currentValue2)"
     }
-
-
+    
+    
     
     
     
@@ -174,48 +171,54 @@ class ViewController: UIViewController {
             break;
         }
     }
-
     
-   @objc func updateUI() {
-//        outwardvelocity < tracker.frequency && tracker.frequency < inwardVelocity
-         if tracker.amplitude > 0.1 {
-            if( outwardvelocity < tracker.frequency){
+    
+    @objc func updateUI() {
+        //        outwardvelocity < tracker.frequency && tracker.frequency < inwardVelocity
+        if tracker.amplitude > 0.2 {
+            if( inwardVelocity < tracker.frequency || outwardvelocity > tracker.frequency){
                 acount += 1
+                if scount>0 {
+                    scount -= 1
+                }
                 print("Counter: ",acount)
                 print("alert frequency: ",tracker.frequency)
+                print("alert Amplidufe: ",tracker.amplitude)
                 if(acount > Int(alertcounter.value) && aflag==false){
-                    print("Alert")
                     aflag = true
-                    //scount=0
+                    scount=0
                     self.view.backgroundColor = .red
                 }
-                if (acount < Int(alertcounter.value) && aflag==true) {
-                    aflag = false
-                    print("Safe")
-                    self.view.backgroundColor = .green
-                }
+                //                if (acount < Int(alertcounter.value) && aflag==true) {
+                //                    aflag = false
+                //                    self.view.backgroundColor = .white
+                //                }
             }else{
                 if(acount>0){
-//                    scount += 1
+                    scount += 1
                     acount -= 1
+                    
                     print("Counter: ",acount)
                     print("safe frequency: ",tracker.frequency)
-                    if(acount < Int(alertcounter.value) && aflag==true){
+                    if(acount < Int(alertcounter.value) && aflag==true && scount > Int(alertcounter.value)){
                         print("Safe2")
                         aflag = false
-                        acount=0
-                        self.view.backgroundColor = .blue
+                        //                        acount=0
+                        self.view.backgroundColor = .green
                     }
                 }
             }
-
-//            print("Amplitude: ",tracker.amplitude)
-//            print("Frequency: ",tracker.frequency)
+            
             frequencyLabel.text = String(format: "%0.1f Hz", tracker.frequency)
-            }
+        }
+        if  tracker.amplitude < 0.1{
+            self.view.backgroundColor = .white
+            aflag = false
+            acount=0
+        }
         amplitudeLabel.text = String(format: "%0.2f", tracker.amplitude)
     }
-
+    
     
     
 }
