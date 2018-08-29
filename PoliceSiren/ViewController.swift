@@ -6,12 +6,13 @@
 //  Copyright © 2016 Maulik. All rights reserved.
 //
 
+//importing UIKit and AudioKit library v4.3
 import UIKit
-//import AVFoundation
 import AudioKit
 
 class ViewController: UIViewController {
     
+    //Initiallizing variables 
     @IBOutlet var frequencyLabel: UILabel!
     @IBOutlet var amplitudeLabel: UILabel!
     @IBOutlet var audioAnalyse:UIButton!
@@ -29,11 +30,6 @@ class ViewController: UIViewController {
     var inwardVelocity: Double = 0.0;
     var stadyvelocity: Double = 0.0;
     var outwardvelocity: Double = 0.0;
-    
-    
-//    @IBOutlet var noteNameWithSharpsLabel: UILabel!
-//    @IBOutlet var noteNameWithFlatsLabel: UILabel!
-//    @IBOutlet var audioInputPlot: EZAudioPlot!
 
     var mic: AKMicrophone!
     var tracker: AKFrequencyTracker!
@@ -44,80 +40,60 @@ class ViewController: UIViewController {
     var avgFreq = 0.0
     var aflag = false
     var sflag = true
-    //    var fft:AKFFT!
     var data:[Double]!
     var fdata:[Double]!
-    
-    
-    let noteFrequencies = [16.35,17.32,18.35,19.45,20.6,21.83,23.12,24.5,25.96,27.5,29.14,30.87]
-    let noteNamesWithSharps = ["C", "C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
-    let noteNamesWithFlats = ["C", "D♭","D","E♭","E","F","G♭","G","A♭","A","B♭","B"]
-    
-    //    func setupPlot() {
-    //        let plot = AKNodeOutputPlot(mic, frame: audioInputPlot.bounds)
-    //        plot.plotType = .rolling
-    //        plot.shouldFill = true
-    //        plot.shouldMirror = true
-    //        plot.color = UIColor.blue
-    //        audioInputPlot.addSubview(plot)
-    //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AKAudioFile.cleanTempDirectory()
-        
-        
-        AKSettings.audioInputEnabled = true
-        
-        
+        //Settings for recording the audio files 
+        AKAudioFile.cleanTempDirectory()  
+        AKSettings.audioInputEnabled = true       
         AKSettings.sampleRate = 44100
-        //AKSettings.numberOfChannels = 1
         AKSettings.bufferLength = .longest
-        
-        
-        do{
-            try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
-        } catch { print("Errored setting category.")}
+                
+        do  {
+                try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
+            }catch { 
+                print("Errored setting category.")
+            }
         
         AKSettings.audioInputEnabled = true
         mic = AKMicrophone()
+        
+        //Using Highpass filter for removing any frequency that does not fall in the given criteria 
         highpassfilter = AKHighPassFilter(mic)
         highpassfilter.cutoffFrequency = 3500
         highpassfilter.resonance = 0.0
         tracker = AKFrequencyTracker.init(highpassfilter)
-        //        let bpf = AKBandPassFilter(tracker)
-        //        bpf.centerFrequency=1500
-        //        bpf.bandwidth=600
         silence = AKBooster(tracker, gain: 0)
         AudioKit.output = silence
         do {
-            try AudioKit.start()
-        } catch {
-            AKLog("AudioKit did not start!")
-        }
+                try AudioKit.start()
+            } catch {
+                AKLog("AudioKit did not start!")
+            }
     }
     
-    
+    //Start/Stop button for staring and stopping the application. 
     @IBAction func recordTapped(_ sender: UIButton) {
         let text = audioAnalyse.titleLabel!.text
         if text == "Tap to Start"{
-            //            print("Start");
             audioAnalyse.setTitle("Tap to Stop", for: .normal);
             mic.start()
-            //            fft = AKFFT(mic)
-            //            print("in start Counter: ",acount)
             Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
         }else{
-            //            print("Stop");
             acount=0
             self.view.backgroundColor = .white
             aflag = false
-            //            print("in stop Counter: ",acount)
             audioAnalyse.setTitle("Tap to Start", for: .normal);
             mic.stop();
         }
     }
+    
+    //Calculating the frequency range using the Doppler effect
+    //Assuming the wind velocity as 340.29m/s
+    //Conversion factor from miles/hr to meters/sec is 0.44704
     
     func calculateVelocity(_ sfrequency: Double){
         let windvelocity = 340.29
@@ -132,29 +108,29 @@ class ViewController: UIViewController {
         print("Frequency3 or Inward: ",inwardVelocity)
     }
     
-    
+    //User input for setting the counter for considering the alert
+    //Ideal counter is 15 to 17
     @IBAction func alertCounterChanged(_ sender: UISlider) {
-        let currentValue = Int(sender.value)
-        
+        let currentValue = Int(sender.value)  
         alertcountervalue.text = "\(currentValue)"
     }
     
+    //User input for setting users driving speed of the vehicle
+    //Ideal value would be close to 45miles/hr to 55miles/hr
     @IBAction func userSpeedChanged(_ sender: UISlider) {
-        let currentValue1 = Int(sender.value)
-        
+        let currentValue1 = Int(sender.value)        
         userspeedvalue.text = "\(currentValue1)"
     }
     
+    //User input for setting emergency vehicle's speed greater than user's vehicle speed
+    //Ideal value would be close to 5miles/hr to 10miles/hr greater than user's vehicle speed
     @IBAction func emergencySpeedChanged(_ sender: UISlider) {
-        let currentValue2 = Int(sender.value)
-        
+        let currentValue2 = Int(sender.value)        
         emergencyspeedvalue.text = "\(currentValue2)"
     }
     
-    
-    
-    
-    
+    //Segmented options for emergency vehicle's frequency
+    //Ideal settings for any emergency vehicle would be between 1500 to 2000
     @IBAction func calculateFrequency(_ sender: UIButton){
         switch typeofvehicle.selectedSegmentIndex {
         case 0:
@@ -172,38 +148,46 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    //UpdateUI function for constantly changing the frequency's from the surrounding 
     @objc func updateUI() {
-        //        outwardvelocity < tracker.frequency && tracker.frequency < inwardVelocity
-        if tracker.amplitude > 0.2 {
+        
+       //Considering the Amplitude factor as 0.2 because most of the emergency vehicle has 
+       //amplitude or loudness greater than 0.2.
+       if tracker.amplitude > 0.2 {
+           
+           //Condition for checing the range of the frequency using doppler effect 
             if( inwardVelocity < tracker.frequency || outwardvelocity > tracker.frequency){
+                
+                //If the frequency falls within the range then the alert counter increments
+                //Also at the same time the safe counter decrements
                 acount += 1
                 if scount>0 {
                     scount -= 1
                 }
-                print("Counter: ",acount)
-                print("alert frequency: ",tracker.frequency)
-                print("alert Amplidufe: ",tracker.amplitude)
+                
+                //If the alert counter is more then the value and alert flag was false 
+                //than the screen color is changed to red for alert, alert flag 
+                //is set to true and safe counter set to zero.
                 if(acount > Int(alertcounter.value) && aflag==false){
                     aflag = true
                     scount=0
                     self.view.backgroundColor = .red
-                }
-                //                if (acount < Int(alertcounter.value) && aflag==true) {
-                //                    aflag = false
-                //                    self.view.backgroundColor = .white
-                //                }
-            }else{
+                }                
+            }
+           
+           //If the frequency is not within the range than the safe counter 
+           //increases and alert counter decreases
+           else{
                 if(acount>0){
                     scount += 1
                     acount -= 1
                     
-                    print("Counter: ",acount)
-                    print("safe frequency: ",tracker.frequency)
+                    //If the safe counter is more then the value, alert counter is less 
+                    //than the set value and alert flag was true than the screen color is 
+                    //changed to green for safe, alert flag is set to false.
                     if(acount < Int(alertcounter.value) && aflag==true && scount > Int(alertcounter.value)){
                         print("Safe2")
                         aflag = false
-                        //                        acount=0
                         self.view.backgroundColor = .green
                     }
                 }
@@ -211,6 +195,9 @@ class ViewController: UIViewController {
             
             frequencyLabel.text = String(format: "%0.1f Hz", tracker.frequency)
         }
+        //If the amplitude fator is less than 0.1 which means than there is no more emergency
+        //vehicle around or there is nothing much to analyze so the screen color is changed
+        //back to white, alert flag set to false and alert counter set to zero.
         if  tracker.amplitude < 0.1{
             self.view.backgroundColor = .white
             aflag = false
@@ -222,4 +209,3 @@ class ViewController: UIViewController {
     
     
 }
-
