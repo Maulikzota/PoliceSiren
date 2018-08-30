@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		680E257A1DDF825800DD48FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E25791DDF825800DD48FD /* AppDelegate.swift */; };
-		680E257C1DDF825800DD48FD /*  ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E257B1DDF825800DD48FD /*  ViewController.swift */; };
 		680E257F1DDF825800DD48FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680E257D1DDF825800DD48FD /* Main.storyboard */; };
 		680E25811DDF825800DD48FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680E25801DDF825800DD48FD /* Assets.xcassets */; };
 		680E25841DDF825800DD48FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680E25821DDF825800DD48FD /* LaunchScreen.storyboard */; };
@@ -16,8 +15,9 @@
 		680E259A1DDF825900DD48FD /* PoliceSirenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E25991DDF825900DD48FD /* PoliceSirenUITests.swift */; };
 		680E25A91DDF82B700DD48FD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 680E25A81DDF82B700DD48FD /* AVFoundation.framework */; };
 		680E25AB1DDF82BE00DD48FD /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 680E25AA1DDF82BE00DD48FD /* AVKit.framework */; };
-		689F51082106ADFE0048A186 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689F51072106ADFE0048A186 /* AudioKitUI.framework */; };
-		689F510C2106AFF90048A186 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689F510B2106AFF90048A186 /* AudioKit.framework */; };
+		DBC487E0213834420056AD60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC487DF213834420056AD60 /* ViewController.swift */; };
+		DBC487E72138354C0056AD60 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC487E52138354C0056AD60 /* AudioKit.framework */; };
+		DBC487E82138354C0056AD60 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC487E62138354C0056AD60 /* AudioKitUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +53,6 @@
 /* Begin PBXFileReference section */
 		680E25761DDF825800DD48FD /* PoliceSiren.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliceSiren.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		680E25791DDF825800DD48FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		680E257B1DDF825800DD48FD /*  ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " ViewController.swift"; sourceTree = "<group>"; };
 		680E257E1DDF825800DD48FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		680E25801DDF825800DD48FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		680E25831DDF825800DD48FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,8 +65,11 @@
 		680E259B1DDF825900DD48FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		680E25A81DDF82B700DD48FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		680E25AA1DDF82BE00DD48FD /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
-		689F51072106ADFE0048A186 /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKitUI.framework; sourceTree = "<group>"; };
-		689F510B2106AFF90048A186 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		DBC487DF213834420056AD60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DBC487E12138353B0056AD60 /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = "../../Downloads/AudioKit-iOS/AudioKitUI.framework"; sourceTree = "<group>"; };
+		DBC487E22138353B0056AD60 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = "../../Downloads/AudioKit-iOS/AudioKit.framework"; sourceTree = "<group>"; };
+		DBC487E52138354C0056AD60 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = "../../Downloads/AudioKit-iOS/AudioKit.framework"; sourceTree = "<group>"; };
+		DBC487E62138354C0056AD60 /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = "../../Downloads/AudioKit-iOS/AudioKitUI.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				689F510C2106AFF90048A186 /* AudioKit.framework in Frameworks */,
-				689F51082106ADFE0048A186 /* AudioKitUI.framework in Frameworks */,
+				DBC487E82138354C0056AD60 /* AudioKitUI.framework in Frameworks */,
+				DBC487E72138354C0056AD60 /* AudioKit.framework in Frameworks */,
 				680E25AB1DDF82BE00DD48FD /* AVKit.framework in Frameworks */,
 				680E25A91DDF82B700DD48FD /* AVFoundation.framework in Frameworks */,
 			);
@@ -102,8 +104,8 @@
 		680E256D1DDF825400DD48FD = {
 			isa = PBXGroup;
 			children = (
-				689F510B2106AFF90048A186 /* AudioKit.framework */,
-				689F51072106ADFE0048A186 /* AudioKitUI.framework */,
+				DBC487E52138354C0056AD60 /* AudioKit.framework */,
+				DBC487E62138354C0056AD60 /* AudioKitUI.framework */,
 				680E25781DDF825800DD48FD /* PoliceSiren */,
 				680E258D1DDF825800DD48FD /* PoliceSirenTests */,
 				680E25981DDF825900DD48FD /* PoliceSirenUITests */,
@@ -126,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				680E25791DDF825800DD48FD /* AppDelegate.swift */,
-				680E257B1DDF825800DD48FD /*  ViewController.swift */,
+				DBC487DF213834420056AD60 /* ViewController.swift */,
 				680E257D1DDF825800DD48FD /* Main.storyboard */,
 				680E25801DDF825800DD48FD /* Assets.xcassets */,
 				680E25821DDF825800DD48FD /* LaunchScreen.storyboard */,
@@ -156,6 +158,8 @@
 		680E25A71DDF82B700DD48FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBC487E22138353B0056AD60 /* AudioKit.framework */,
+				DBC487E12138353B0056AD60 /* AudioKitUI.framework */,
 				680E25AA1DDF82BE00DD48FD /* AVKit.framework */,
 				680E25A81DDF82B700DD48FD /* AVFoundation.framework */,
 			);
@@ -301,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				680E257C1DDF825800DD48FD /*  ViewController.swift in Sources */,
+				DBC487E0213834420056AD60 /* ViewController.swift in Sources */,
 				680E257A1DDF825800DD48FD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

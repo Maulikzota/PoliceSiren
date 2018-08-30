@@ -12,7 +12,7 @@ import AudioKit
 
 class ViewController: UIViewController {
     
-    //Initiallizing variables 
+    //Initiallizing variables
     @IBOutlet var frequencyLabel: UILabel!
     @IBOutlet var amplitudeLabel: UILabel!
     @IBOutlet var audioAnalyse:UIButton!
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     var inwardVelocity: Double = 0.0;
     var stadyvelocity: Double = 0.0;
     var outwardvelocity: Double = 0.0;
-
+    
     var mic: AKMicrophone!
     var tracker: AKFrequencyTracker!
     var highpassfilter : AKHighPassFilter!
@@ -46,22 +46,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Settings for recording the audio files 
-        AKAudioFile.cleanTempDirectory()  
-        AKSettings.audioInputEnabled = true       
+        //Settings for recording the audio files
+        AKAudioFile.cleanTempDirectory()
+        AKSettings.audioInputEnabled = true
         AKSettings.sampleRate = 44100
         AKSettings.bufferLength = .longest
-                
+        
         do  {
-                try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
-            }catch { 
-                print("Errored setting category.")
-            }
+            try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
+        }catch {
+            print("Errored setting category.")
+        }
         
         AKSettings.audioInputEnabled = true
         mic = AKMicrophone()
         
-        //Using Highpass filter for removing any frequency that does not fall in the given criteria 
+        //Using Highpass filter for removing any frequency that does not fall in the given criteria
         highpassfilter = AKHighPassFilter(mic)
         highpassfilter.cutoffFrequency = 3500
         highpassfilter.resonance = 0.0
@@ -69,13 +69,13 @@ class ViewController: UIViewController {
         silence = AKBooster(tracker, gain: 0)
         AudioKit.output = silence
         do {
-                try AudioKit.start()
-            } catch {
-                AKLog("AudioKit did not start!")
-            }
+            try AudioKit.start()
+        } catch {
+            AKLog("AudioKit did not start!")
+        }
     }
     
-    //Start/Stop button for staring and stopping the application. 
+    //Start/Stop button for staring and stopping the application.
     @IBAction func recordTapped(_ sender: UIButton) {
         let text = audioAnalyse.titleLabel!.text
         if text == "Tap to Start"{
@@ -111,21 +111,21 @@ class ViewController: UIViewController {
     //User input for setting the counter for considering the alert
     //Ideal counter is 15 to 17
     @IBAction func alertCounterChanged(_ sender: UISlider) {
-        let currentValue = Int(sender.value)  
+        let currentValue = Int(sender.value)
         alertcountervalue.text = "\(currentValue)"
     }
     
     //User input for setting users driving speed of the vehicle
     //Ideal value would be close to 45miles/hr to 55miles/hr
     @IBAction func userSpeedChanged(_ sender: UISlider) {
-        let currentValue1 = Int(sender.value)        
+        let currentValue1 = Int(sender.value)
         userspeedvalue.text = "\(currentValue1)"
     }
     
     //User input for setting emergency vehicle's speed greater than user's vehicle speed
     //Ideal value would be close to 5miles/hr to 10miles/hr greater than user's vehicle speed
     @IBAction func emergencySpeedChanged(_ sender: UISlider) {
-        let currentValue2 = Int(sender.value)        
+        let currentValue2 = Int(sender.value)
         emergencyspeedvalue.text = "\(currentValue2)"
     }
     
@@ -148,14 +148,14 @@ class ViewController: UIViewController {
         }
     }
     
-    //UpdateUI function for constantly changing the frequency's from the surrounding 
+    //UpdateUI function for constantly changing the frequency's from the surrounding
     @objc func updateUI() {
         
-       //Considering the Amplitude factor as 0.2 because most of the emergency vehicle has 
-       //amplitude or loudness greater than 0.2.
-       if tracker.amplitude > 0.2 {
-           
-           //Condition for checing the range of the frequency using doppler effect 
+        //Considering the Amplitude factor as 0.2 because most of the emergency vehicle has
+        //amplitude or loudness greater than 0.2.
+        if tracker.amplitude > 0.2 {
+            
+            //Condition for checing the range of the frequency using doppler effect
             if( inwardVelocity < tracker.frequency || outwardvelocity > tracker.frequency){
                 
                 //If the frequency falls within the range then the alert counter increments
@@ -165,25 +165,25 @@ class ViewController: UIViewController {
                     scount -= 1
                 }
                 
-                //If the alert counter is more then the value and alert flag was false 
-                //than the screen color is changed to red for alert, alert flag 
+                //If the alert counter is more then the value and alert flag was false
+                //than the screen color is changed to red for alert, alert flag
                 //is set to true and safe counter set to zero.
                 if(acount > Int(alertcounter.value) && aflag==false){
                     aflag = true
                     scount=0
                     self.view.backgroundColor = .red
-                }                
+                }
             }
-           
-           //If the frequency is not within the range than the safe counter 
-           //increases and alert counter decreases
-           else{
+                
+                //If the frequency is not within the range than the safe counter
+                //increases and alert counter decreases
+            else{
                 if(acount>0){
                     scount += 1
                     acount -= 1
                     
-                    //If the safe counter is more then the value, alert counter is less 
-                    //than the set value and alert flag was true than the screen color is 
+                    //If the safe counter is more then the value, alert counter is less
+                    //than the set value and alert flag was true than the screen color is
                     //changed to green for safe, alert flag is set to false.
                     if(acount < Int(alertcounter.value) && aflag==true && scount > Int(alertcounter.value)){
                         print("Safe2")
@@ -209,3 +209,4 @@ class ViewController: UIViewController {
     
     
 }
+
