@@ -177,7 +177,7 @@ class ViewController: UIViewController {
                 
                 //If the frequency is not within the range than the safe counter
                 //increases and alert counter decreases
-            else{
+            else{    
                 if(acount>0){
                     scount += 1
                     acount -= 1
