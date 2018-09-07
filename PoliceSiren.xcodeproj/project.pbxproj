@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F35BF63213984B50018CFB6 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F35BF60213984A90018CFB6 /* AudioKit.framework */; };
-		3F35BF64213984B50018CFB6 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F35BF60213984A90018CFB6 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3F35BF65213984B50018CFB6 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F35BF5F213984A00018CFB6 /* AudioKitUI.framework */; };
-		3F35BF66213984B50018CFB6 /* AudioKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F35BF5F213984A00018CFB6 /* AudioKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3F2973342142FD0C00248532 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2973322142FD0500248532 /* AudioKitUI.framework */; };
+		3F2973352142FD0C00248532 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2973332142FD0B00248532 /* AudioKit.framework */; };
 		680E257A1DDF825800DD48FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680E25791DDF825800DD48FD /* AppDelegate.swift */; };
 		680E257F1DDF825800DD48FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680E257D1DDF825800DD48FD /* Main.storyboard */; };
 		680E25811DDF825800DD48FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680E25801DDF825800DD48FD /* Assets.xcassets */; };
@@ -46,8 +44,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3F35BF66213984B50018CFB6 /* AudioKitUI.framework in Embed Frameworks */,
-				3F35BF64213984B50018CFB6 /* AudioKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 1;
@@ -55,8 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3F35BF5F213984A00018CFB6 /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKitUI.framework; sourceTree = "<group>"; };
-		3F35BF60213984A90018CFB6 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		3F2973322142FD0500248532 /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKitUI.framework; sourceTree = "<group>"; };
+		3F2973332142FD0B00248532 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		680E25761DDF825800DD48FD /* PoliceSiren.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliceSiren.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		680E25791DDF825800DD48FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		680E257E1DDF825800DD48FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,8 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F35BF65213984B50018CFB6 /* AudioKitUI.framework in Frameworks */,
-				3F35BF63213984B50018CFB6 /* AudioKit.framework in Frameworks */,
+				3F2973352142FD0C00248532 /* AudioKit.framework in Frameworks */,
+				3F2973342142FD0C00248532 /* AudioKitUI.framework in Frameworks */,
 				680E25AB1DDF82BE00DD48FD /* AVKit.framework in Frameworks */,
 				680E25A91DDF82B700DD48FD /* AVFoundation.framework in Frameworks */,
 			);
@@ -106,8 +102,8 @@
 		680E256D1DDF825400DD48FD = {
 			isa = PBXGroup;
 			children = (
-				3F35BF60213984A90018CFB6 /* AudioKit.framework */,
-				3F35BF5F213984A00018CFB6 /* AudioKitUI.framework */,
+				3F2973332142FD0B00248532 /* AudioKit.framework */,
+				3F2973322142FD0500248532 /* AudioKitUI.framework */,
 				680E25781DDF825800DD48FD /* PoliceSiren */,
 				680E258D1DDF825800DD48FD /* PoliceSirenTests */,
 				680E25981DDF825900DD48FD /* PoliceSirenUITests */,

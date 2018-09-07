@@ -13,35 +13,64 @@ import AudioKit
 class ViewController: UIViewController {
     
     //Initiallizing variables
+    //Label to display the frequency of the sound
     @IBOutlet var frequencyLabel: UILabel!
+    
+    //Label to display the amplitude of the sound
     @IBOutlet var amplitudeLabel: UILabel!
+    
+    //Button to Start and Stop Recording
     @IBOutlet var audioAnalyse:UIButton!
     
+    //Slider to enter User vehicle Speed
     @IBOutlet weak var userspeed: UISlider!
+    
+    //Label to display the entered user vehicle speed
     @IBOutlet var userspeedvalue: UILabel!
     
+    //Slider to enter emergency vehicle Speed greater than user's speed
     @IBOutlet weak var emergencyspeed: UISlider!
+    
+    //Label to display the emergency vehicle Speed
     @IBOutlet var emergencyspeedvalue: UILabel!
     
+    //Slider to enter the counter for alert
     @IBOutlet weak var alertcounter: UISlider!
+    
+    //Label to display the counter value
     @IBOutlet weak var alertcountervalue: UILabel!
     
+    //Segement for changing type of emergency vehicle
     @IBOutlet var typeofvehicle: UISegmentedControl!
+    
+    //Inward velocity for emergency vehicle
     var inwardVelocity: Double = 0.0;
-    var stadyvelocity: Double = 0.0;
+    
+    //Outward velocity for emergency vehicle
     var outwardvelocity: Double = 0.0;
     
+    //Variable to access Microphone
     var mic: AKMicrophone!
+    
+    //Variable to track the frequency
     var tracker: AKFrequencyTracker!
+    
+    //Variable for highpass filter
     var highpassfilter : AKHighPassFilter!
     var silence: AKBooster!
+    
+    //Variable for alert counter
     var acount=0
+    
+    //Variable for safe counter
     var scount=0
-    var avgFreq = 0.0
+    
+    //Variable for alert flag
     var aflag = false
+    
+    //Variable for safe flag
     var sflag = true
-    var data:[Double]!
-    var fdata:[Double]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +78,8 @@ class ViewController: UIViewController {
         //Settings for recording the audio files
         AKAudioFile.cleanTempDirectory()
         AKSettings.audioInputEnabled = true
+        
+        //Initializing sample rate to 44100
         AKSettings.sampleRate = 44100
         AKSettings.bufferLength = .longest
         
@@ -81,8 +112,12 @@ class ViewController: UIViewController {
         if text == "Tap to Start"{
             audioAnalyse.setTitle("Tap to Stop", for: .normal);
             mic.start()
+            
+            //Timer for scheduling the recording of sound input
             Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(ViewController.updateUI), userInfo: nil, repeats: true)
         }else{
+            
+            //Initializing the initial values for alert flag and alert counter
             acount=0
             self.view.backgroundColor = .white
             aflag = false
