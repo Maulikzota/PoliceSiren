@@ -188,7 +188,7 @@ class ViewController: UIViewController {
         
         //Considering the Amplitude factor as 0.15 because most of the emergency vehicle has
         //amplitude or loudness greater than 0.15.
-        if tracker.amplitude > 0.10 {
+        if tracker.amplitude > 0.20 {
            
             //Condition for checing the range of the frequency using doppler effect
             if( inwardVelocity < tracker.frequency || outwardvelocity > tracker.frequency){
