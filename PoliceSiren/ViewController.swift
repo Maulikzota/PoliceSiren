@@ -186,10 +186,10 @@ class ViewController: UIViewController {
     //UpdateUI function for constantly changing the frequency's from the surrounding
     @objc func updateUI() {
         
-        //Considering the Amplitude factor as 0.2 because most of the emergency vehicle has
-        //amplitude or loudness greater than 0.2.
-        if tracker.amplitude > 0.2 {
-            
+        //Considering the Amplitude factor as 0.15 because most of the emergency vehicle has
+        //amplitude or loudness greater than 0.15.
+        if tracker.amplitude > 0.10 {
+           
             //Condition for checing the range of the frequency using doppler effect
             if( inwardVelocity < tracker.frequency || outwardvelocity > tracker.frequency){
                 
@@ -221,7 +221,6 @@ class ViewController: UIViewController {
                     //than the set value and alert flag was true than the screen color is
                     //changed to green for safe, alert flag is set to false.
                     if(acount < Int(alertcounter.value) && aflag==true && scount > Int(alertcounter.value)){
-                        print("Safe2")
                         aflag = false
                         self.view.backgroundColor = .green
                     }
